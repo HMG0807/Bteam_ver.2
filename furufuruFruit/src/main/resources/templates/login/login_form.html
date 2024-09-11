@@ -1,0 +1,71 @@
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/login/login.css}">
+     <!-- Main -->
+    <section>
+        <!-- container -->
+        <div class="container">
+             <div th:if="${param.error}">
+            	<div>
+                사용자ID 또는 비밀번호를 확인해 주세요.
+            	</div>
+            </div>
+            <!-- login text -->
+           <div class="text-login">
+                <p>로그인</p>
+           </div>
+           <!-- text-login end -->
+            
+        <!-- form -->
+        <form id="loginform" th:action="@{/user/login}" method="post">
+        <!-- wrap input -->
+        <div class="wrap-input">
+           <!-- input id -->
+            <div class="input-id">
+                <input name="username" id="username" type="text" placeholder="아이디를 입력해주세요">
+           </div>
+           <!-- input id end  -->
+            
+           <!-- input pwd -->
+           <div class="input-pwd">
+                <input name="password" id="password" type="password" placeholder="비밀번호를 입력해주세요">
+           </div>
+           <!-- input pwd end  -->
+        </div>
+        <!-- end wrap-input -->
+
+        <!-- btn wrap  -->
+        <div class="wrap-btn">
+           <div class="btn-login">
+                <button type="submit">로그인</button>
+           </div>
+           <!-- btn-login end  -->
+           <div class="btn-signup">
+                <button type="button">
+                  <div class="moveSignUp">회원가입</div > 
+               </button>
+           </div>
+           <!-- btn-singup end  -->
+        </div>
+        <!-- wrap-btn end -->
+
+        <!-- wrap finding -->
+        <div class="wrap-finding">
+            <div class="finding">
+                 <a href="">아이디</a>
+                 <span>|</span>
+                 <a href="">비밀번호 찾기</a>
+            </div>
+            <!-- finding end -->
+         </div>
+         <!-- wrap-finding end  -->
+
+    </form>
+    <!-- form end -->
+</div>
+<!-- container end -->
+    </section>
+    <!-- main end -->
+     <script th:src="@{/login/login.js}"></script>
+</div>
+</html>

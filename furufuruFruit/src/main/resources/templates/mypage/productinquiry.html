@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸릇푸릇 푸르츠</title>
+
+    <link rel="stylesheet" th:href="@{/mypage/inquiryproduct.css}">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="user-info">
+                <span>환영합니다, 사용자님</span>
+                <a href="#">고객센터</a>
+            </div>
+            <div class="header-actions">
+                <a href="#">내 주문</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">자주 구매</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="logo">
+                <a href="#">로고</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="검색">
+                <button type="submit">검색</button>
+            </div>
+            <div class="header-actions">
+                <a href="#">배송지</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">장바구니</a>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="#">신상품</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">특가 혜택</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>자주 찾는 메뉴</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/inquiry}" >상품 문의 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage}" >상품 등록 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage/updatecheck}" >상품 조회/수정 </a></li>
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함-->
+            <h2>쇼핑</h2>
+            <ul>
+               <li><a href="#">상품 후기</a></li>
+                <li><a th:href="@{|/mypage/inquiry/products|}">상품 문의</a></li>
+                <li><a href="#">장바구니</a></li>
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함 -->
+            <h2>내 정보 관리</h2>
+            <ul>
+                <li><a href="#">배송지 관리</a></li>
+                <li><a href="#">개인정보 수정</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div id="product-inquiry" class="content-section">
+                <div class="product-box">
+                    <h3>상품 문의</h3>
+                    <div class="line"></div>
+                    
+                     <!-- 문의 목록 섹션 -->
+                     <div class="inquiry-list">
+                        <div class="inquiry-item">
+                            <div class="inquiry-info">
+                                <h4>문의한 상품명</h4>
+                                <h5>상품문의한 제목명</h5>
+                                <p class="status">답변대기 | 2024.xx.xx</p>
+                            </div>
+                            <img src="/manboong.png" alt="상품 이미지" class="inquiry-image">
+                        </div>
+                        <hr class="inquiry-separator">
+                        <div class="inquiry-item">
+                            <div class="inquiry-info">
+                                <h4>문의한 상품명 </h4>
+                                <h5>상품문의한 제목명</h5>
+                                <p class="status">답변완료 | 2024.xx.xx</p>
+                            </div>
+                            <img src="/manboong.png" alt="상품 이미지" class="inquiry-image">
+                        </div>
+                        <hr class="inquiry-separator">
+                        <!-- 추가 문의 항목을 여기에 추가하세요 -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+               
+</body>
+</html>

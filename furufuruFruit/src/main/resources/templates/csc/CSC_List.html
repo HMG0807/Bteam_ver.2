@@ -1,0 +1,115 @@
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+<link rel="stylesheet" th:href="@{/csc/CSC.css}">
+
+    <!-- Main -->
+    <section>
+        <!-- section -->
+        <div class="sec">
+            <!-- side bar -->
+            <div class="side-bar">
+                <h1>고객센터</h1>
+                <li>
+                    <a href="">공지사항</a>
+                </li>
+                <li>
+                    <a href="">자주묻는질문</a>
+                </li>
+                <li>
+                    <a th:href="@{/csc}">1:1문의하기</a>
+                </li>
+            </div>   
+            <!-- side bar end -->
+            
+            <!-- main bar -->
+            <div class="main-bar">
+                <!-- title -->
+                <div class="title">
+                    <h1>1:1문의하기</h1>
+                    <span>새로운 소식 및 유용한 정보를 만나보실 수 있습니다</span>
+                    <a th:href="@{csc/form}">글쓰기</a> 
+                </div>
+                <!-- title end -->
+
+                <!-- contour -->
+                <div class="contour">
+                    <div>번호</div>
+                    <div>제목</div>
+                    <div>작성일</div>
+                    <div>답변여부</div>
+                </div>
+                <!-- contour end -->
+
+                <!-- wrap content -->
+                <ul class="wrap-content"> 
+                    <li th:each="servicecenterquestion, loop : ${paging}">
+                        <div th:text="${paging.totalElements - (paging.number * paging.size) - loop.index}"></div>
+                        <a th:href="@{|/csc/detail/${servicecenterquestion.cquestionId}|}" th:text="${servicecenterquestion.title}"></a> 
+                        <div th:text="${#temporals.format(servicecenterquestion.questionDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
+                        <div></div>
+                    </li>
+                </ul>
+                <!-- wrap content end -->
+
+                <!-- 페이징 버튼 -->
+                <ul class="pagination justify-content-center">
+	                <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+					    <a class="page-link" th:href="@{|?page=${paging.number-1}|}">
+		                    <span>이전</span>
+		                </a>
+		            </li>
+	                <th:block th:switch="${#strings.toString(paging.number)}">
+					    <th:block th:case="0">
+					    	<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+				            	th:if="${page >= paging.number-0 and page <= paging.number+4}" 
+				            	th:classappend="${page == paging.number} ? 'active'" class="page-item">
+				                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+				            </li>
+					    </th:block>
+					    <th:block th:case="1">
+					    	<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+				            	th:if="${page >= paging.number-1 and page <= paging.number+3}" 
+				            	th:classappend="${page == paging.number} ? 'active'" class="page-item">
+				                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+				            </li>
+					    </th:block>
+					    <th:block th:case="${paging.totalPages-2}">
+					    	<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+				            	th:if="${page >= paging.number-3 and page <= paging.number+1}" 
+				            	th:classappend="${page == paging.number} ? 'active'" class="page-item">
+				                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+				            </li>
+					    </th:block>
+					    <th:block th:case="${paging.totalPages-1}">
+					    	<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+				            	th:if="${page >= paging.number-4 and page <= paging.number+0}" 
+				            	th:classappend="${page == paging.number} ? 'active'" class="page-item">
+				                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+				            </li>
+					    </th:block>
+					    <th:block th:case="*">
+					    	<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+				            	th:if="${page >= paging.number-2 and page <= paging.number+2}" 
+				            	th:classappend="${page == paging.number} ? 'active'" class="page-item">
+				                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+				            </li>
+					    </th:block>
+					</th:block>
+					<li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+		            	<a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+		                    <span>다음</span>
+		                </a>
+		            </li>
+                </ul>
+				<!-- 페이징 버튼 end -->
+                
+            </div>
+            <!-- main bar end -->
+            
+        </div>
+        <!-- section end -->
+        
+    </section>
+    <!-- main end -->
+</div>
+</html>

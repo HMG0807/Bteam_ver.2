@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸릇푸릇 푸르츠</title>
+    <link rel="stylesheet" th:href="@{/mypage/saleuser_productinquiry_detail.css}">
+  
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="user-info">
+                <span>환영합니다, 사용자님</span>
+                <a href="#">고객센터</a>
+            </div>
+            <div class="header-actions">
+                <a href="#">내 주문</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">자주 구매</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="logo">
+                <a href="#">로고</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="검색">
+                <button type="submit">검색</button>
+            </div>
+            <div class="header-actions">
+                <a href="#">배송지</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">장바구니</a>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="#">신상품</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">특가 혜택</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>상품관리</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/inquiry}" >상품 문의 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage}">상품 등록 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage/updatecheck}" >상품 조회/수정 </a></li>
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함-->
+            <h2>주문/배송</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/orderdetail}">주문내역</a></li>
+               
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함 -->
+            <h2>내 정보 관리</h2>
+            <ul>
+                <li><a href="#">개인정보 수정</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div id="product-inquiry" class="content-section">
+                <div class="product-box">
+                    <h3>상품 문의 상세</h3>
+                    <div class="line"></div>
+                    
+                    <!-- 문의 질문 글 -->
+                    <div id="question-box">
+                        <div id="question-box-title">
+                            <span>문의 글 제목입니다</span><span>답변 완료</span>
+                        </div>
+                        <div id="question-box-id">
+                            <span>사용자명</span><span>2024-07-07</span>
+                        </div>
+                        <div id="question-box-contents">
+                            문의 내용입니다.문의 내용입니다.<br>문의 내용입니다.문의 내용입니다.문의 내용입니다.문의 내용입니다. 문의 내용입니다.문의 내용입니다.문의 내용입니다.문의 내용입니다.문의 내용입니다.문의 내용입니다. 문의 내용입니다.문의 내용입니다.<br>문의 내용입니다.문의 내용입니다.문의 내용입니다.문의 내용입니다.
+                        </div>
+                        <div id="question-btn-box">
+                            <a href="">답글</a>
+                            <a href="">삭제</a>
+                        </div>
+                    </div>
+                    <hr class="inquiry-separator">
+                    <!-- 문의 답변 글 -->
+                    <div id="answer-box">
+                        <div id="answer-box-title">
+                            <span><input type="text" value="답변 글 제목입니다" readonly></span>
+                        </div>
+                        <div id="answer-box-id">
+                            <span>사용자명</span><span>2024-07-10</span>
+                        </div>
+                        <div id="answer-box-contents">
+                            <textarea name="" rows="4" readonly>답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다. 답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다. 답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.답변 내용입니다.</textarea>
+                        </div>
+                        <div id="answer-btn-box">
+                            <a href="">수정</a>
+                            <a href="">삭제</a>
+                        </div>
+                    </div>
+                    <hr class="inquiry-separator">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

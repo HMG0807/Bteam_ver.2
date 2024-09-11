@@ -1,0 +1,475 @@
+<!--이순-->
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content" class="container my-3">
+
+
+    <link rel="stylesheet" th:href="@{/detail_page/detailPage.css}">
+
+
+    <!--메인-->
+
+
+
+
+
+
+    <div id="main">
+        <img th:src="@{/detail_page/x-mas_gunchimSSAK.jpg}" width="500" height="750">
+
+
+
+        
+        <div class="mainInfor">
+            <div style="width: 490px; font-size: x-large;">
+                <span th:text="${product.name}"></span>
+            </div>
+            <div class="mainPrice">
+                <h2>
+                    <span style="color: rgb(255, 99, 99);">9724%</span>
+                    <span th:text="${product.price}"></span><span>원</span>
+                </h2>
+            </div>
+            <h2>원산지: 군침왕국</h2>
+            <div class="mainInforBox">
+                <div class="rtBox">배송</div>
+                <div>군침택배</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">판매자</div>
+                <div>요리왕군침</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">포장타입</div>
+                <div>냉장</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">판매단위</div>
+                <div>1판</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">중량/용량</div>
+                <div>9724g내외</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">소비기한</div>
+                <div>9724일</div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">안내사항</div>
+                <div>
+                    <span th:text="${product.explan}"></span>
+                </div>
+            </div>
+            <div class="mainInforBox">
+                <div class="rtBox">상품선택</div>
+                <div class="ltBox">
+                    <div class="itemTitle">
+                        <span th:text="${product.name}"></span>
+                    </div>
+                    <div class="itemCount">
+                        <div class="countbtn">
+                            <button class="plusbtn"> + </button>
+                            <input type="text" style="text-indent: 1.3rem; width: 5rem;" class="p_num">
+                            <button class="minusbtn"> - </button>
+                        </div>
+                        <div>
+                            <span th:text="${product.price}" class="price"></span>원
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainInforBox end">
+                <span>총 상품금액: </span>
+                <span class="totalPrice"></span>
+                <span>원</span>
+            </div>
+            <div class="mainInforBox between">
+                <button class="wishbtn" onclick="toggleAct(this)">♥</button>
+                <a th:href="@{|/cart/1|}" class="carttext"><div class="cartbtn">장바구니 담기</div></a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--상품 정보-->
+
+    <div id="infor">
+        <p><span th:text="${product.explan}"></span></p>
+        <p>매년 반복되는 크리스마스 <br> 예수님 생일에 지들이 뭐라고 커플들은 난리치는지</p>
+        <img th:src="@{/detail_page/airportThief.jpg}" alt="">
+        <p style="color: rgb(184, 17, 17);">예예예 예수님 생일이 언제부터 니들 파티날이 되, 되었는데,~ </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>커플? 크리스마스에 사람들한테 치여서 별로임ㅋㅋ</p>
+        <img th:src="@{/detail_page/justclowns.jpeg}" alt="">
+        <p style="color: rgb(184, 17, 17);">응~ 안 사귀면 그만이야~</p>
+        <br><br><br><br><br>
+        <p>정신 승리라고 느껴질 때 먹으면 좋은 케이크!</p>
+        <p style="color: rgb(184, 17, 17);">유기농 재료만 써서 정성껏 만든 화려한군침케이크</p>
+    </div>
+
+
+
+
+
+
+    <!-- 상품고시정보 테이블 -->
+
+
+    <div id="detail">
+        <h3 class="css-nd38pl e11kghol0">상품고시정보</h3>
+        <ul class="css-1lb3ltj ej1h6cm3">
+            <li class="rtlist">품목 또는 명칭</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">포장단위별 내용물의 용량(중량), 수량, 크기</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">생산자, 수입품의 경우 수입자를 함께 표기</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">｢농수산물의 원산지 표시 등에 관한 법률｣에 따른 원산지</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">제조연월일, 소비기한 또는 품질유지기한</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">농수산물 – ｢농수산물 품질관리법｣에 따른 유전자변형농수산물 표시, 지리적 표시</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">축산물 - ｢축산법｣에 따른 등급 표시(1++ 등급 국내산 쇠고기의 경우 ｢소ㆍ돼지 식육의 표시방법 및 부위 구분기준｣에 따라 근내지방도 정보를 포함하여 표시), ｢가축 및 축산물 이력관리에 관한 법률｣에 따른 이력관리대상축산물 유무</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">수입 농수축산물 – “수입식품안전관리 특별법에 따른 수입신고를 필함”의 문구</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">상품구성</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">보관방법 또는 취급방법</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">소비자 안전을 위한 주의사항 (｢식품 등의 표시ㆍ광고에 관한 법률 시행규칙｣ 제5조 및 [별표 2]에 따른 표시사항을 말함)</li>
+            <li class="ltlist">상품설명 및 상품이미지 참조</li>
+            <li class="rtlist">소비자 상담 관련 전화번호</li>
+            <li class="ltlist">과일부락리고객센터 (1644-1107)</li>
+        </ul>
+    </div>
+
+
+
+
+
+
+    <!--후기-->
+
+
+
+
+    <div id="reviews">
+        <div class="reviewTitle">상품 후기</div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="reviewbox top">
+            <div class="review">군**</div>
+            <h3 class="review">
+                <span th:text="${product.name}"></span>
+            </h3>
+            <p class="css-y49dcn e36z05c13">
+                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+            </p>
+            <div class="css-la25nj e36z05c2">
+                <button class="css-p5degw e36z05c10">
+                    <img alt="리뷰 이미지 썸네일" th:src="@{/detail_page/gunchimMacarong.jpg}" width="240" height="240">
+                    <noscript></noscript>
+                </button>
+            </div>
+            <footer class="css-1fkegtf e36z05c1">
+                <div>
+                    <span class="css-14kcwq8 e36z05c0">2024.08.25</span>
+                </div>
+            </footer>
+        </div>
+        <div class="btn">
+            <button class="prevbtn"> < </button>
+            <button class="nextbtn"> > </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!--문의-->
+    
+    
+    
+    
+    <div id="QnA">
+        <h3>문의하기</h3>
+        <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+        <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 <a th:href="@{/mypage/inquiry/products}">1:1 문의</a>에 남겨주세요</li>
+        <br>
+        <table>
+            <th style="width: 850px;">제목</th>
+            <th style="width: 100px;">작성자</th>
+            <th style="width: 100px;">작성일</th>
+            <th style="width: 100px;">답변상태</th>
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝-->
+            <tr><!--행 시작-->
+                <td class="tableTitle">군침 안돌아 환불해줘요</td>
+                <td>군*이</td>
+                <td>9724.97.24</td>
+                <td>답변대기</td>
+            </tr><!--행 끝10-->
+        </table>
+        <div class="btn">
+            <button class="prevbtn"> < </button>
+            <button class="nextbtn"> > </button>
+        </div>
+        
+    </div>
+
+
+
+
+    <script th:src="@{/detail_page/detailPage.js}"></script>
+
+</div>
+</html>

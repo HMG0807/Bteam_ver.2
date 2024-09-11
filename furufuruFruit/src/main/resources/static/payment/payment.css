@@ -1,0 +1,118 @@
+*{
+    /* border: black solid 2px; */
+}
+
+.box{
+    padding-bottom: 100px;
+}
+
+h2{
+    border-bottom: rgb(53, 53, 53) solid 3px;
+    padding-bottom: 10px;
+}
+
+.flexibleBox{
+    display: flex;
+}
+
+.boxLt{
+    width: 20%;
+    align-self: center;
+    padding: 10px 0;
+}
+
+.boxRt{
+    width: 80%;
+    align-self: center;
+    padding: 10px 0;
+}
+
+/******************** 전체 세팅 *******************
+*************************************************/
+
+
+#header{
+    background-color: RGB(255,192,0);
+    height: 300px;
+}
+
+
+/************************ 헤더 끝 *************
+************************************************/
+
+
+#main{
+    width: 1150px;
+    margin: auto;
+}
+
+
+.orderList{
+    margin-bottom: 50px;
+}
+
+.orderItem{
+    padding-bottom: 20px;
+    font-weight: 900;
+}
+
+.items{
+    padding: 20px 0 ;
+}
+
+select{
+    width: 400px;
+    padding: .8em .5em; /*em : 부모 요소 단위의 n배*/
+}
+
+
+
+
+/*********결제 수단*************/
+
+button{
+    width: 200px;
+    height: 40px;
+}
+
+
+/******동의*********/
+
+
+.policy{
+    padding: 10px 0;
+    font-size: 10px;
+}
+
+.agree{
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+
+
+/***결제 버튼***/
+
+
+.paymentbtn{
+
+    display: flex;
+    justify-content: end;
+    margin-bottom: 200px;
+}
+
+.cardslash{
+    color: aliceblue;
+    font-weight: 800;
+}
+
+
+
+/************** 메인 끝 *************************
+**************************************************/
+
+#footer{
+    background-color: RGB(255,192,0);
+    height: 300px;
+}

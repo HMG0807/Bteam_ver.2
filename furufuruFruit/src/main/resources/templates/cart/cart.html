@@ -1,0 +1,84 @@
+<!--이순-->
+
+<html layout:decorate="~{layout/layout}">
+
+
+
+
+<div layout:fragment="content" class="container my-3">
+<link rel="stylesheet" th:href="@{/cartStyle/cartTest.css}">
+    <!-- 메에에에에에에에에에이이이이이이이인-->
+
+    <div id="main">
+        <div class="mainText">
+            <p class="cartText">장바구니</p>
+        </div>
+        <div class="cartMain">
+            <div class="cart">
+                <div class="cartCheck">
+                    <div class="cartCheckLt">
+                    
+                        <a href="javascript:void(0);" th:data-uri="@{|/cart/delete/${cart.cartId}|}" style="text-decoration: none;" class="del"><div class="delete">전체삭제</div></a>
+                    </div>
+                    <a href="javascript:void(0);" th:data-uri="@{|/cart/delete/${cart.cartId}|}" style="text-decoration: none;" class="del"><div class="delete">선택삭제</div	></a>
+                     
+                     
+                     
+                </div>
+                <div class="cartList">
+                    <div class="item">
+                        <div class="itemCheck">
+                            <input type="checkbox" class="checkbox">
+                            <!--<p>수제군침케이크</p>-->
+                            <p th:text="${cart.product.name}">수제군침케이크</p>
+                        </div>
+                        <div class="itemInfor">
+                            <img th:src="@{/detail_page/x-mas_gunchimSSAK.jpg}" class="itemImg">
+                            <div class="itemCount">
+                                <!--<div th:text="${product.price}"><span>원</span></div>-->
+                                <div class="price"><span th:text="${cart.product.price}"></span>원</div>
+                                <div class="countbtn">
+                                    <button class="plusbtn"> + </button>
+                                    <div><input type="text" style="text-indent: 1.3rem; width: 5rem;" class="p_num"></div>
+                                    <button class="minusbtn"> - </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cartRt">
+                <div class="cartCash">
+                    <p class="payment">결제금액</p>
+                    <div class="cartInline">
+                        <p class="itemPrice">상품금액</p>
+                        <!--<p th:text="${product.price}"><span>원</span></p>-->
+                        <p class="price"><span>9,724원</span></p>
+                    </div>
+                    <div class="cartInline">
+                        <p class="sale text">상품할인금액</p>
+                        <p class="sale pay">-5,000원</p>
+                    </div>
+                    <div class="loginsale">로그인 후 할인 금액 적용</div>
+                    <div class="cartInline">
+                        <p>배송비</p>
+                        <p>3,000원</p>
+                    </div>
+                    <div class="cartInlineTotal">
+                        <p class="total">결제예정금액</p>
+                        <!--<p class="totalPrice"><span>원</span></p>-->
+                        <p class="totalPrice"></p>
+                        <p class="totalPrice">원</p>
+                    </div>
+                    <div class="cupon">쿠폰/적립금은 주문서에서 사용 가능합니다</div>
+                </div>
+                <a th:href="@{|/payment|}" class="paymenttext"><div class="cartBuy">결제하기</div></a>
+            </div>
+        </div>
+    </div>
+
+    <!--메에에에에에에에에에에이이이이이이ㅣ이이인 끝-->
+
+    <script th:src="@{/cartStyle/cart.js}"></script>
+</div>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc8b36da76.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px; padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: rgb(255,192,0);
+            height: 50px;
+            padding-top: 10px;
+            padding-left: 10px;
+            color: white;
+        }
+        header > a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        #container{
+            display: flex;
+        }
+
+        /* nav 구역 */
+        nav{
+            background-color: rgb(140, 163, 177);
+            display: inline-block;
+            width: 200px;
+            height: calc(100vh - 50px);
+        }
+        nav > div {
+            color: white;
+            border-bottom: 1px solid #666;
+            width: 200px;
+            font-size: 1rem;
+            text-align: left;
+            padding: 18px 0px 18px 15px;
+        }
+        nav > div:hover {
+            background-color: rgb(56, 56, 56);
+            cursor: pointer;
+        }
+        nav > div:nth-child(1){
+            border-right: 7px solid rgb(56, 56, 56);
+        }
+        nav i {
+            margin-right: 5px;
+        }
+
+        /* section 구역 */
+        section{
+            display: inline-block;
+            width: 1000px;
+            padding: 20px 0px 0px 50px;
+        }
+        section > h1{
+            font-size: 30px;
+        }
+        section > #searchBox{
+            margin-top: 20px;
+            background-color: rgb(237, 242, 245);
+            padding: 25px 30px;
+        }
+        section > #searchBox > select{
+            width: 100px;
+            height: 25px;
+        }
+        section > #searchBox > input[type=text]{
+            width: 400px;
+            height: 25px;
+            position: relative;
+            padding-left: 5px;
+        }
+        section > #searchBox > button{
+            width: 70px;
+            height: 25px;
+            color: white;
+            background-color: rgb(140, 163, 177);
+            border: 0px;
+            position: absolute;
+        }
+        /* section 구역 > Column 구역 */
+        section > #columnBox {
+            margin-top: 20px;
+            padding: 14px;
+            background-color: #ccc;
+            font-weight: bold;
+            display: flex;
+        }
+        section > #columnBox > span { display: inline-block; }
+        section > #columnBox > span:nth-child(1) { width: 130px; }
+        section > #columnBox > span:nth-child(2) { width: 130px; }
+        section > #columnBox > span:nth-child(3) { width: 400px; }
+        section > #columnBox > span:nth-child(4) { width: 130px; }
+        section > #columnBox > span:nth-child(5) { width: 150px; }
+        /* section 구역 > Content 구역 */
+        section > .contentRows {
+            padding: 14px;
+            display: flex; /* 창 줄일때 레코드 2줄로 생겨서 flex로 지정 */
+        }
+        section > .contentRows > span { display: inline-block; }
+        section > .contentRows > span:nth-child(1) { width: 130px; }
+        section > .contentRows > span:nth-child(2) { width: 130px; }
+        section > .contentRows > span:nth-child(3) { width: 400px; }
+        section > .contentRows > span:nth-child(4) { width: 130px; }
+        section > .contentRows > span:nth-child(5) { width: 150px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="admin_main.html">푸릇 푸릇 푸르트</a>
+    </header>
+    <div id="container">
+        <nav>
+            <div class="navBtn"><i class="fa-solid fa-address-book fa-1x"></i>사용자 관리</div>
+            <div class="navBtn"><i class="fa-solid fa-square-pen fa-1x"></i>고객센터 관리</div>
+        </nav>
+        <section>
+            <h1>사용자 관리</h1>
+            <div id="searchBox"> <!-- 검색창 -->
+                <select name="" id="">
+                    <option>전체</option>
+                    <option value="">구매자</option>
+                    <option value="">판매자</option>
+                </select>
+                <input type="text" placeholder="ID명 또는 이름을 입력해주세요.">
+                <button>검색</button>
+            </div>
+            <div id="columnBox"> <!-- 테이블 컬럼 -->
+                <span>ID</span>
+                <span>이름</span>
+                <span>주소</span>
+                <span>등록상태</span>
+                <span>등록날짜</span>
+            </div>
+            <div class="contentRows">
+                <span>oracle</span>
+                <span>홍길동</span>
+                <span>대한민국 그옛날 어딘가 낡은집</span>
+                <span>미등록</span>
+                <span>2024-07-21</span>
+            </div>
+            <div class="contentRows">
+                <span>hmg123</span>
+                <span>이몽룡</span>
+                <span>서울의 좋은 집</span>
+                <span>등록</span>
+                <span>2024-06-18</span>
+            </div>
+            <div class="contentRows">
+                <span>kakaka</span>
+                <span>춘향</span>
+                <span>제주도의 살기 편한 집</span>
+                <span>미등록</span>
+                <span>2024-06-11</span>
+            </div>
+        </section>
+    </div>
+    <script>
+        const navBtns = document.querySelectorAll(".navBtn");
+
+        navBtns[0].addEventListener('click', function(){
+            location.href = "/admin/sub_user";
+        });
+        navBtns[1].addEventListener('click', function(){
+            location.href = "/admin/sub_center";
+        });
+    </script>
+</body>
+</html>

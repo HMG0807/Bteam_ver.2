@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸르푸르 푸르츠</title>
+    <link rel="stylesheet" th:href="@{/mypage/inquiry.css}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="user-info">
+                <span>환영합니다, 사용자님</span>
+                <a href="#">고객센터</a>
+            </div>
+            <div class="header-actions">
+                <a href="#">내 주문</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">자주 구매</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="logo">
+                <a href="#">로고</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="검색">
+                <button type="submit">검색</button>
+            </div>
+            <div class="header-actions">
+                <a href="#">배송지</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">장바구니</a>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="#">신상품</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">특가 혜택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>상품관리</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/inquiry}">상품 문의 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage}">상품 등록 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage/updatecheck}">상품 조회/수정 </a></li>
+            </ul>
+            <hr>
+            <h2>주문/배송</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/orderdetail}">주문내역</a></li>
+            </ul>
+            <hr>
+            <h2>내 정보 관리</h2>
+            <ul>
+                <li><a href="#">개인정보 수정</a></li>
+            </ul>
+        </aside>
+        <div class="main-content">
+            <div class="content-header">
+                <h1>상품 조회/수정</h1>
+            </div>
+            <div class="boxes">
+                <button class="box">전체<br>N 건</button>
+                <button class="box">판매요청전 <br>N 건</button>
+                <button class="box">판매대기 <br>N 건</button>
+                <button class="box">판매중 <br>N 건</button>
+                <button class="box">품절 <br>N 건</button>
+                <button class="box">판매중지 <br>N 건</button>
+                <button class="box">판매종료 <br>N 건</button>
+            </div>
+            <div class="search-section">
+                <div class="search-field search-text">
+                    검색어
+                </div>
+                <div class="search-field">
+                    <label for="product-number">상품명</label>
+                    <input type="text" id="product-number" placeholder="상품명 입력">
+                </div>
+                <div class="search-field">
+                    <label for="product-name">등록상품명</label>
+                    <input type="text" id="product-name" placeholder="등록상품명 입력">
+                </div>
+                <div class="search-field">
+                    <label for="manufacturer">제조사명</label>
+                    <input type="text" id="manufacturer" placeholder="제조사명 입력">
+                </div>
+                <div class="search-field">
+                    <label for="brand-name">브랜드명</label>
+                    <input type="text" id="brand-name" placeholder="브랜드명 입력">
+                </div>
+            </div>
+            <hr>
+            <div class="product-condition">
+                <div class="product-field product-text">
+                    상품상태 
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="condition" value="전체"> 전체</label>
+                    <label><input type="checkbox" name="condition" value="판매요청전"> 판매요청전</label>
+                    <label><input type="checkbox" name="condition" value="판매대기"> 판매대기</label>
+                    <label><input type="checkbox" name="condition" value="판매중"> 판매중</label>
+                    <label><input type="checkbox" name="condition" value="품절"> 품절</label>
+                    <label><input type="checkbox" name="condition" value="판매중지"> 판매중지</label>
+                    <label><input type="checkbox" name="condition" value="판매종료"> 판매종료</label>
+                    <label><input type="checkbox" name="condition" value="승인대기"> 승인대기</label>
+                    <label><input type="checkbox" name="condition" value="심사중"> 심사중</label>
+                    <label><input type="checkbox" name="condition" value="승인반려"> 승인반려</label>
+                    <label><input type="checkbox" name="condition" value="임시반려"> 임시반려</label>
+                    <label><input type="checkbox" name="condition" value="등록불가"> 등록불가</label>
+                    <label><input type="checkbox" name="condition" value="부분승인완료"> 부분승인완료</label>
+                    <label><input type="checkbox" name="condition" value="승인완료"> 승인완료</label>
+                </div>
+            </div>
+            <hr>
+            <div class="date-filter">
+                <div class="date-filter-header">
+                    <div class="date-filter-period">
+                        <span>기간</span>
+                    
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-button">기간 선택</button>
+                        <div class="dropdown-content">
+                            <a href="#">상품등록일</a>
+                            <a href="#">판매시작일</a>
+                            <a href="#">판매종료일</a>
+                            <a href="#">최종수정일</a>
+                        </div>
+                    </div>
+                    <div class="date-filter-durations">
+                    
+                        <button class="duration-option">오늘</button>
+                        <button class="duration-option">7일</button>
+                        <button class="duration-option">30일</button>
+                        <button class="duration-option">90일</button>
+                        <button class="duration-option">1년</button>
+                        <button class="duration-option">전체</button>
+                    </div>
+                    <div class="date-filter-calendar">
+                        <label for="start-date">기간</label>
+                        <input type="date" id="start-date" name="start-date">
+                        <span>~</span>
+                        <input type="date" id="end-date" name="end-date">
+                    </div>
+                </div>
+                
+    
+            </div>
+            <hr>
+            <div class="date-filter-buttons">
+                <button class="filter-button reset-button">초기화</button>
+                <button class="filter-button search-button">검색</button>
+            </div>
+            <hr>
+            <div class="product-list">
+                <div class="list-header">
+                    <span>상품목록</span>
+                    <div class="items-per-page">
+                
+                        <select id="items-per-page-select">
+                            <option value="10">10개씩 보기</option>
+                            <option value="20">20개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                        </select>
+                    </div>
+                </div>
+               
+               
+                
+            </div>
+           <hr>
+           <div selected-count-header>
+           <span class="selected-count">N 개 선택됨</span>
+            </div>
+
+           <div class="product-actions">
+
+            <!-- 판매 요청 버튼 작성 -->
+            <button class="action-button sales-request">판매 요청</button>
+    
+            <!-- 판매 상태 변경 -->
+            <div class="dropdown">
+                <button class="dropdown-button">판매 상태 변경</button>
+                <div class="dropdown-content">
+                    <a href="#">판매상태 변경</a>
+                    <a href="#">판매중</a>
+                    <a href="#">판매중지</a>
+                </div>
+            </div>
+    
+          
+            <button class="action-button price-change">판매가 변경</button>
+    
+          <!-- 배송변경 버튼 드롭다운 스타일 적용  -->
+            <div class="dropdown">
+                <button class="dropdown-button">배송 변경</button>
+                <div class="dropdown-content">
+                    <a href="#">배송 옵션 1</a>
+                    <a href="#">배송 옵션 2</a>
+                    <a href="#">배송 옵션 3</a>
+                </div>
+            </div>
+    
+          
+            <div class="dropdown">
+                <button class="dropdown-button">기타 변경</button>
+                <div class="dropdown-content">
+                    <a href="#">기타 옵션 1</a>
+                    <a href="#">기타 옵션 2</a>
+                    <a href="#">기타 옵션 3</a>
+                </div>
+            </div>
+    
+         
+            <button class="action-button delete-button">삭제</button>
+
+            <div class="table-container">
+                <div class="table-scrollable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th>등록상품 ID</th>
+                                <th>등록상품명</th>
+                                <th>승인/노출상태</th>
+                                <th>판매상태</th>
+                                <th>상품타입</th>
+                                <th>판매가</th>
+                                <th>가격/재고/판매상태</th>
+                                <th>상세설명</th>
+                                <th>브랜드</th>
+                                <th>제조사</th>
+                                <th>카테고리</th>
+                                <th>출고 소요일</th>
+                                <th>배송방법</th>
+                                <th>묶음배송</th>
+                                <th>제주/도서산간 배송</th>
+                                <th>택배사</th>
+                                <th>배송비 종류</th>
+                                <th>기본 배송비</th>
+                                <th>반품배송비(편도)</th>
+                                <th>판매시작일</th>
+                                <th>판매종료일</th>
+                                <th>최초 등록일</th>
+                                <th>최종 수정일</th>
+                                <th>수정이력</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr>
+                                <td><input type="checkbox" name="select-item"></td>
+                                <td>1234</td>
+                                <td>상품 C</td>
+                                <td>승인</td>
+                                <td>판매중</td>
+                                <td>타입 Y</td>
+                                <td>10,000 원</td>
+                                <td>재고 972 / 판매중</td>
+                                <td>상세설명 A</td>
+                                <td>브랜드 A</td>
+                                <td>제조사 B</td>
+                                <td>카테고리 F</td>
+                                <td>1일</td>
+                                <td>택배</td>
+                                <td>가능</td>
+                                <td>가능</td>
+                                <td>택배사 A</td>
+                                <td>무료</td>
+                                <td>3000 원</td>
+                                <td>2024-01-01</td>
+                                <td>2024-12-31</td>
+                                <td>2024-01-01</td>
+                                <td>2024-01-01</td>
+                                <td>이력 A</td>
+                                <td>2024-08-31</td>
+                            </tr>
+                            <!-- 추가 데이터 행을 여기에 추가 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 상품 목록 확인 영역 -->
+            <!-- <div class="product-list">
+                <div class="list-header">
+                    <button class="arrow-button">▼</button>
+                    <button class="check-button">삭제 체크박스</button>
+                    <button class="edit-copy-button">수정/복사</button>
+                </div> -->
+        </div>
+            
+        </div>
+    </div>
+    </body>
+    </html>

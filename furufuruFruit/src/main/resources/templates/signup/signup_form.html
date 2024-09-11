@@ -1,0 +1,135 @@
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+   	<link rel="stylesheet" th:href="@{/signup/signup.css}">
+     <!-- Main -->
+    <section>
+        <!-- container -->
+        <div class="signupcontainer">
+        <!-- form -->
+        <form id="signUpForm" th:action="@{/user/signup}" th:object="${userCreateForm}" name="signUpForm" method="post">
+         <div id="erorrs" th:replace="~{login/form_errors :: formErrorsFragment}"></div>
+          <!-- member container -->
+          <div class="member-container">
+              <!-- member header -->
+              <div class="header">
+                <div>회원가입을 위해</div>
+                <div>정보를 입력해주세요</div>
+              </div>
+              <!-- member header -->
+
+              <!-- user info -->
+              <div class="user-info">
+                
+                <!-- id  -->
+                <div class="user-info-id">
+                  <div>* 아이디</div>
+                  <input type="text" th:field="*{id}" />
+                </div>
+                <!-- id end -->
+
+                <!-- name  -->
+                <div class="user-info-name">
+                  <div>* 이름</div>
+                  <input type="text" th:field="*{name}" />
+                </div>
+                <!-- name end -->
+
+                <!-- pwd -->
+                <div class="user-info-pw">
+                    <div>* 비밀번호</div>
+                    <input type="password" th:field="*{pw}" />
+                </div>
+                <!-- pwd end -->
+
+                <!-- pwd check -->
+                <div class="user-info-pw-check">
+                  <div>* 비밀번호 확인</div>
+                  <input type="password" th:field="*{pw2}" />
+                </div>
+                <!-- pwd check end -->
+              
+                <!-- email -->
+                <div class="user-info-email">
+                  <div>* 이메일</div>
+                  <div class="warp-input">
+                  <input type="text" name="email" id="email" th:field="*{email1}"/>
+                  <span>@</span>
+                    <input class="box" id="domain-txt" type="text" th:field="*{email2}"/>
+                    <select name="box" id="domain-list" type="text" class="box">
+                      <option value="type">직접입력</option>
+                      <option value="naver.com">naver.com</option>
+                      <option value="google.com">google.com</option>
+                      <option value="hanmail.net">hanmail.net</option>
+                      <option value="nate.com">nate.com</option>
+                      <option value="kakao.com">kakao.com</option>
+                    </select> 
+                </div>
+              </div>
+                <!-- email end -->
+               	
+                <!-- tel -->
+                <div class="user-info-tel">
+                  <div>* 전화번호</div>
+                  <input type="tel" th:field="*{tell}" onfocus="this.placeholder=''" maxlegth="13" oninput="autoHyphen(this)" pattern="010-[0-9]{3,4}-[0-9]{4}" placeholder="- 없이 숫자만 입력하세요" 
+                  id="tel" autocomplete="off" name="users_phone"  onblur="this.placeholder = '- 없이 숫자만 입력하세요'"/>
+                </div>
+                <!-- tel end -->
+
+                <!-- adress -->
+                <div class="user-info-adress">
+                  <div>* 주소</div> 
+                  <button id="btn-post" onclick="findAddr1()">찾아보기</button>
+                  <br>
+                  <input th:field="*{address1}" id="member_post"  type="text" placeholder="우편번호" readonly>
+                  <br>
+                  <input th:field="*{address2}" id="member_addr" type="text" placeholder="기본주소" readonly>
+                  <br>
+                  <input th:field="*{address3}" id="member_addr_in" type="text" placeholder="상세주소를 입력하세요"  >
+                </div>
+
+              </div>
+              <!-- user info end -->
+              
+              <!-- gender -->
+              <div class="gender">
+                  <input th:field="*{gender}" type="radio" name="gender" value="man" />
+                  <label for="men">남성</label>
+                  <input th:field="*{gender}" type="radio" name="gender" value="girl"/>
+                  <label for="women">여성</label>
+              </div>
+              <!-- gender end -->
+
+              <!-- userinfo -->
+              <div class="userinfo">
+                <input th:field="*{role}" type="radio" name="role" value="buyuser" />
+                <label for="buyuser">구매자</label>
+                <input th:field="*{role}" type="radio" name="role" value="saleuser"/>
+                <label for="saleuser">판매자</label>
+              </div>
+              <!-- userinfo end -->
+
+              <!-- agree -->
+              <div class="agree-check">
+                <input type="checkbox"> 이용약관 개인정보 수집 및 이용, 마케팅 활용 선택에 모두 동의합니다.
+              </div>
+              <!-- agree end -->
+              <br>
+              <!-- signup -->
+              <div class="btn-signup">
+                <button name="singUp" class="signupbtn">가입하기</button>
+              </div>
+              <!-- signup end -->
+          </div>   
+          
+          <!-- member container end -->
+        </form>
+    <!-- form end -->
+</div>
+<!-- container end -->
+</section>
+<!-- main end -->
+     
+     <script th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"></script>
+     <script th:src="@{/signup/signup.js}"></script>
+</div>
+</html>

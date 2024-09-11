@@ -1,0 +1,75 @@
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+<link rel="stylesheet" th:href="@{/csc/CSC.css}">
+
+    <!-- Main -->
+    <section>
+        <!-- section -->
+        <div class="sec">
+            <!-- side bar -->
+            <div class="side-bar">
+                <h1>고객센터</h1>
+                <li>
+                    <a href="">공지사항</a>
+                </li>
+                <li>
+                    <a href="">자주묻는질문</a>
+                </li>
+                <li>
+                    <a th:href="@{/csc}">1:1문의하기</a>
+                </li>
+            </div>   
+            <!-- side bar end -->
+            
+            <!-- main bar -->
+            <div id="mainbox" class="main-bar">
+                <!-- title -->
+                <div class="title">
+                    <h1>1:1 문의하기</h1>
+                    <span>문의 상세페이지입니다.</span>
+                </div>
+                <!-- title end -->
+
+                <!-- Question form -->
+
+                    <!-- subject -->
+                <div class="qs-info-subject" style="margin-top: 50px;">
+                    <h3>제목</h1>
+                    <input type="text" th:value="${question.title}" readonly>
+                </div>
+                <!-- subject end -->
+
+                <!-- content-->
+                <div class="qs-info-content" style="margin-top: 50px;">
+                    <h4>내용</h4>
+                    <textarea th:text="${question.contents}" readonly></textarea>
+                </div>
+                <!-- content end -->
+                <div>
+                    <a class="subBtn" th:href="@{|/csc/modify/${question.cquestionId}|}">수정하기</a>
+                    <!--<a class="subBtn" th:href="@{|/csc/delete/${question.cquestionId}|}">삭제하기</a>-->
+                    <a class="subBtn delete" href="javascript:void(0);"
+                    th:data-uri="@{|/csc/delete/${question.cquestionId}|}">삭제하기</a>
+                </div>
+                <!-- Question form end -->
+            </div>
+            <!-- main bar end -->
+            
+        </div>
+        <!-- section end -->
+        
+    </section>
+    <!-- main end -->
+    <script type="text/javascript">
+		//삭제 버튼 클릭
+		let del = document.querySelectorAll(".delete");
+	    for(let el of del){
+	        el.addEventListener('click',function(){
+	            if(confirm("정말로 삭제하시겠습니까?")){
+	                location.href = this.dataset.uri;
+	            }
+	        });
+	    }
+	</script>
+</div>
+</html>

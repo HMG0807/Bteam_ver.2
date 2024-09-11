@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc8b36da76.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>  
+        *{
+            margin: 0px; padding: 0px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #mainBox{
+            border: 1px solid #aaa;
+            width: 800px;
+            height: 400px;
+            text-align: center;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding-top: 20px;
+            background-color: white;
+            position: relative;
+        }
+        #logoImg{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 80px;
+            height: 80px;
+        }
+        #title{
+            margin-bottom: 20px;
+        }
+        #itemBox{
+            display: flex;
+            justify-content: center;
+        }
+        .item{
+            width: 250px;
+            height: 210px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding-top: 40px;
+        }
+        .item:hover{ cursor: pointer; }
+        .item:hover > .ibox{ transform: scale(1.1); }
+        .ibox{ height: 150px; }
+        .itemTxt{ font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div id="mainBox">
+        <img src="image/logo.png" alt="" id="logoImg">
+        <h1 id="title">푸릇 푸릇 푸르츠 관리자</h1>
+        <div id="itemBox">
+            <div class="item">
+                <div class="ibox"><i class="fa-solid fa-address-book fa-8x"></i></div>
+                <div class="itemTxt">사용자 관리</div>
+            </div>
+            <div class="item">
+                <div class="ibox"><i class="fa-solid fa-square-pen fa-8x"></i></div>
+                <div class="itemTxt">고객센터 관리</div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/admin/admin_main.js}"></script>
+</body>
+</html>
