@@ -1,0 +1,324 @@
+*{
+    /* border: 3px solid RGB(255,192,0); */
+    margin: 0;
+    
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+#header{
+    background-color: RGB(255,192,0);
+    text-align: center;
+    height: 18%;
+}
+
+/*최상단div*/
+.icon{
+    display: flex;
+    justify-content: end;
+    height: 30px;
+}
+.iconText{
+    width: fit-content;
+    height: auto;
+    margin-left: 10px;
+}
+.iconCenter{
+    width: fit-content;
+    height: auto;
+    margin-right: 30px;
+}
+
+.iconText.join{
+    color: RGB(255,192,0);
+}
+/*--------------------------------*/
+
+/*검색div*/
+.serch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    color: white;
+    background-color: RGB(255,192,0);;
+}
+.serchBar{
+    width: 800px;
+    height: 50px;
+    display: flex;
+}
+input::placeholder{
+    color: rgb(180, 180, 180);
+    font-size: 15px;
+    width: 150px;
+}
+.searchIcon{
+    width: 45px;
+    height: 45px;
+    justify-content: end;
+}
+.cartIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.icons{
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+}
+/*-------------------------------*/
+
+/*카테고리div = 네비바*/
+.category{
+    display: flex;
+    height: 40px;
+    justify-content: center;
+}
+
+.menu{
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    margin: 0 100px;
+}
+.menuCenter{
+    display: flex;
+    width: 600px;
+    height: 40px;
+
+}
+.menuBundle{
+    justify-content: center;
+    align-items: center;
+    margin:0 25px;
+    width: 25%
+
+}
+
+
+/*----------------------------------*/
+
+/*메인div*/
+/*% -> px 변환시키기*/
+#main{
+    /* background-color: rgb(141, 172, 79); */
+    text-align: center;
+    height: 70%;
+    background-color: rgb(219, 219, 219);
+}
+
+/*구매목록div*/
+.mainText{
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/*장바구니 문구*/
+.cartText{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+}
+
+
+
+/*----------------------------------*/
+.cartMain{
+    display: flex;
+    height: 85%;
+    justify-content: center;
+}
+
+
+
+
+/*카트구매목록div*/
+.cart{
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cartCheck{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 550px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+.cartList{
+    width: 600px ;
+}
+/*물건 리스트 구역만 나누고 디테일 안함*/
+.item{
+    height: 80px;
+    margin: 10px 0;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.itemCheck{
+    display: flex;
+    padding-left: 18px;
+}
+.itemInfor{
+    display: flex;
+    padding-left: 35px;
+}
+.itemImg{
+    width: 10%;
+    height: 10%;
+    border-radius: 10px;
+}
+.itemCount{
+    margin-left: 15px;
+}
+.cartRt{
+    margin-left: 10px;
+}
+.cartCash{
+    height: 210px;
+    width: 400px;
+    text-align: start;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.payment{
+    font-size: 20px;
+    font-weight: bold;
+}
+.cartInline{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.cartInlineTotal{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.itemPrice{
+    font-size: 15px;
+}
+.sale.pay{
+    color: red;
+}
+.loginsale{
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+}
+.total{
+    align-self: center;
+}
+.totalPrice{
+    font-size: 20px;
+    font-weight: bold;
+}
+.cupon{
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+}
+.cartBuy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: RGB(255,192,0);
+    width: 420px;
+    
+}
+
+/*-----------------------------*/
+
+
+/*회사정보div*/
+#subbot{
+    background-color: RGB(255,192,0);
+    text-align: left;
+    display: flex;
+    height: 25%;
+    /* padding-top: 1%;
+    padding-left: 1%; */
+}
+
+
+
+/*고객센터div*/
+.office{
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.officeCenter{
+    height: 12%;
+}
+
+.officeText{
+    height: 20%;
+}
+
+/*------------------------*/
+
+
+/*인증div*/
+#bot{
+    background-color:RGB(255,192,0);
+    text-align: center;
+    display: flex;
+    height: 10%;
+}
+.botText{
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+/*--------------------------*/
+
+/*풋터div*/
+#footer{
+    background-color: RGB(255,192,0);
+    text-align: center;
+    height: 10%;
+    padding-top: 1%;
+}
+
+.footerText{
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/mypage/seleuser_productregist.css}">
+    
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="user-info">
+                <span>환영합니다, 사용자님</span>
+                <a href="#">고객센터</a>
+            </div>
+            <div class="header-actions">
+                <a href="#">내 주문</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">자주 구매</a>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="logo">
+                <a href="#">로고</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="검색">
+                <button type="submit">검색</button>
+            </div>
+            <div class="header-actions">
+                <a href="#">배송지</a>
+                <a href="#">찜한 상품</a>
+                <a href="#">장바구니</a>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">카테고리</a></li>
+                <li><a href="#">신상품</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">특가 혜택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>상품관리</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/inquiry}" >상품 문의 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage}" >상품 등록 </a></li>
+                <li><a th:href="@{/mypage/Sellmypage/updatecheck}" >상품 조회/수정 </a></li>
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함-->
+            <h2>주문/배송</h2>
+            <ul>
+                <li><a th:href="@{/mypage/Sellmypage/orderdetail}">주문내역</a></li>
+               
+            </ul>
+            <hr>    <!--가로선으로 나누기 위함 -->
+            <h2>내 정보 관리</h2>
+            <ul>
+                <li><a href="#">개인정보 수정</a></li>
+            </ul>
+        </aside>
+
+        <main id="content">
+            <h3>상품 등록</h3>
+            <div class="line"></div>
+            <div id="content-itemBox">
+             <form id="product-form" th:action="@{/mypage/Sellmypage}" th:object="${productCreateForm}"  method="post" enctype="multipart/form-data">
+                <div id="erorrs" th:replace="~{login/form_errors :: formErrorsFragment}"></div>
+                <div class="content-item">
+                    <h4>상품명</h4>
+                    <input type="text" id="product-name" placeholder="상품명 입력" th:field="*{name}">
+                </div>
+                <div class="content-item">
+                    <h4>상품 카테고리</h4>
+                    <select name="product-category" id="product-category" th:field="*{category}">
+                        <option value="type">카테고리 선택</option>
+                        <option value="과일">과일</option>
+                        <option value="채소">채소</option>
+                        <option value="생선">생선</option>
+                        <option value="쌀/ 잡곡">쌀/ 잡곡</option>
+                        <option value="우유">우유</option>
+                        <option value="김치">김치</option>
+                        <option value="홍삼">홍삼</option>
+                        <option value="전통주">전통주</option>
+                        <option value="밀키트">밀키트</option>
+                        <option value="가공식품">가공식품</option>
+                    </select>
+                </div>
+                <div class="content-item">
+                    <h4>가격</h4>
+                    <input type="text" id="product-price" placeholder="가격 입력" th:field="*{price}">
+                </div>
+                <div class="content-item">
+                    <h4>수량</h4>
+                    <input type="text" id="product-amount" placeholder="수량 입력" th:field="*{amount}">
+                </div>
+                <div class="content-item">
+                    <h4>상품 이미지</h4>
+                    <input type="file" id="product-imgfile" th:field="*{path}">
+                </div>
+                <div class="content-item">
+                    <h4>상세설명</h4>
+                    <textarea name="" id="product-explan" placeholder="상품의 상세설명을 입력해주세요."
+                    th:field="*{explan}"></textarea>
+                </div>
+                <div>
+                    <button type="submit">등록하기</button>
+                </div>
+             </form>
+            </div>
+        </main>        
+    </div>
+</body>
+</html>

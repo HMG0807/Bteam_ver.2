@@ -1,0 +1,188 @@
+<nav th:fragment="headerFragment">
+  <style>
+          /* ------------------헤더 파트---------------------------- */        
+  
+          header{
+              background-color: rgb(255,192,0);
+              width: 100%;
+              height: 50px;
+              
+          }
+  
+  
+          header > a {
+              position: relative;
+              left: 1250px;
+              top: 15px;
+              text-decoration: none;
+              color: green;
+              width: 50%;
+              height: 100%;
+          
+            }
+  
+        
+  /* ------------------탑 바 파트(로고, 서치바, 쇼핑, 마이페이지)---------------------------- */
+  
+          .top-bar{
+              
+              width: 100%;
+              height: 100px; 
+              background-color:rgb(255,192,0) ;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              
+          }
+  
+          .logo{
+            width: 100px;
+            height: 100px;
+            display: inline;
+            position: relative;
+            right: 350px;
+            bottom: 50px;
+          }
+  
+          .logo > img{
+            height: 120%;
+            
+          }
+  
+          .search {
+             position: relative;
+             width: 350px;
+             
+          }
+  
+          input {
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 8px;
+          padding: 10px 12px;
+          font-size: 14px;
+          }
+  
+          .search-bnticon {
+      width: 50px;
+            height: 45px;
+           position : absolute;
+           background-color: green;
+           border : 1px solid green;
+           border-radius: 8px;
+           margin: 0;
+  
+          }    
+              
+          .shopping-mypage >a{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 100px;
+            text-decoration: none;
+              color: green;
+            
+          }
+          /* 0906 로고css 추가 [민준호]*/
+          .logo{
+            cursor: pointer;
+          }
+  /* ------------------네비게이션 파트 (카테고리, 신상품, 베스트, 이벤트)---------------------------- */       
+  
+          nav{
+              width: 100%;
+             
+          }
+  
+          .category{
+            width: 200px;
+            height: 50px;
+            position: relative;
+            left: 250px;
+            z-index: 2;
+          }
+  
+         a > h5 {
+          height: 55px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+         }
+  
+         #cBox:hover > div > div {
+          display: block;
+          
+         }
+  
+         #cBox .list-group-item-light {
+          display: none;
+          z-index: 2;
+          
+         }
+  
+  
+          .new-best-event > a{
+            position: relative;
+            left: 500px;
+            bottom: 25px;
+            margin: 0px 0px 0px 100px;
+            font-size: 20px;
+            text-decoration: none;
+            color: green;
+          }
+      </style>
+      <div class="wrapper">
+        <nav class="wrap">
+          <header>
+            <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/user/signup}" hidden>회원가입</a>
+            <a sec:authorize="hasRole('ROLE_SALEUSER')" href="#">판매등록</a>
+          </header>
+          <div class="top-bar">
+              <div class="logo">
+                <img th:src="@{/layout/logobackground.png}" alt="">
+              </div>
+              <form th:action="@{/searchproduct}" method="get" name="form1">
+  
+                <div class="search">
+                 <input type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요.">
+                 <input type="hidden" id="category" name="category">
+                 <button class="search-bnticon" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                 </button>
+                </div>
+              </form>
+              <span class="shopping-mypage">
+                <!--0909 이순 장바구니 연동중(추후 수정 예정)-->
+              <a th:href="@{|/cart/1|}" class="cart">장바구니</a>
+               <a href="/csc">고객센터</a>
+               <a sec:authorize="isAnonymous()"href="#" hidden>마이페이지</a>
+               <a sec:authorize="isAuthenticated()" href="#">마이페이지</a>
+              </span>   
+          </div>
+                                              <!--- 네비게이션 바 -->
+        <nav>
+          <div class="category">
+            <div id="cBox" class="list-group">
+              <a style="cursor: pointer;" class="list-group-item list-group-item-action">
+                <h5>카테고리</h5>
+              </a>            
+              <div>               
+                 <div style="cursor: pointer;"  class="page-link list-group-item list-group-item-action list-group-item-light">과일</div>  
+            	 <div style="cursor: pointer;" class="page-link list-group-item list-group-item-action list-group-item-light">채소</div>
+                 <div style="cursor: pointer;" class="page-link list-group-item list-group-item-action list-group-item-light">우유</div>
+              </div>
+
+            </div>
+          </div>
+          <div class="new-best-event">
+            <a href="#">신상품</a>
+            <a href="#">베스트</a>
+            <a href="#">이벤트</a>
+          <div>
+        </nav>
+  </nav>
+  <script th:src="@{/layout/header.js}">
+  </script>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc8b36da76.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px; padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: rgb(255,192,0);
+            height: 50px;
+            padding-top: 10px;
+            padding-left: 10px;
+            color: white;
+        }
+        header > a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        #container{
+            display: flex;
+        }
+
+        /* nav 구역 */
+        nav{
+            background-color: rgb(140, 163, 177);
+            display: inline-block;
+            width: 200px;
+            height: calc(100vh - 50px);
+        }
+        nav > div {
+            color: white;
+            border-bottom: 1px solid #666;
+            width: 200px;
+            font-size: 1rem;
+            text-align: left;
+            padding: 18px 0px 18px 15px;
+        }
+        nav > div:hover {
+            background-color: rgb(56, 56, 56);
+            cursor: pointer;
+        }
+        nav > div:nth-child(2){
+            border-right: 7px solid rgb(56, 56, 56);
+        }
+        nav i {
+            margin-right: 5px;
+        }
+
+        /* section 구역 */
+        section{
+            display: inline-block;
+            padding: 20px 0px 0px 50px;
+        }
+        section > h1{
+            font-size: 30px;
+        }
+
+        /* section 구역 > 글 내용 구역 */
+        section > #content-box {
+            /* outline: 1px solid red; */
+        }
+        td {
+            border: 1px solid #ccc;
+        }
+        section > div > table { /* table */
+            border: 1px solid #ccc;
+            border-top: 2px solid black;
+            border-collapse: collapse;
+            width: 800px;
+            height: 600px;
+            margin-top: 50px;
+        }
+        section > div > table .writing-title { /* 글 제목 <tr> */
+            height: 70px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: rgb(237, 242, 245);
+        }
+        section > div > table .writing-title > td {
+            padding-left: 10px;
+        }
+        section > div > table .writing-id-date {
+            height: 50px;
+        }
+        section > div > table .writing-td-title{ /* ID, 등록날짜, 내용 컬럼 */
+            width: 120px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: bold;
+            background-color: rgb(237, 242, 245);
+        }
+        section > div > table .writing-id-date > .writing-td-content{ /* ID, 등록날짜 값 */
+            width: 240px;
+        }
+        section > div > table .writing-td-content{ /* ID, 등록날짜, 내용 값 */
+            padding-left: 15px;
+            font-size: 16px;
+        }
+        section > div > table .writing-td-content-pre{ /* 내용 값 */
+            height: 440px;
+            width: 640px;
+            font-size: 16px;
+            white-space: pre-wrap; /* 줄바꿈 설정 */
+            line-height: 22px;
+        }
+
+        /* 버튼 스타일 */
+        .btn-style {
+            margin-top: 20px;
+            background-color: rgb(13, 110, 253);
+            font-size: 17px;
+            width: 90px;
+            height: 40px;
+            border: 0px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 답변 등록 */
+        #answer-table{
+            display: none;
+        }
+        #answer-table .writing-td-content{ /* 답변 등록의 제목, 내용 값 */
+            width: 640px;
+        }
+        #answer-table #writing-td-text {
+            border-width: 0px;
+            width: 630px;
+            height: 30px;
+            outline: none; /* 포커스 상태일때 두께 생기는거 없애기 */
+            font-size: 17px;
+        }
+        #answer-table #writing-td-textarea {
+            border-width: 0px;
+            width: 640px;
+            height: 500px;
+            outline: none; /* 포커스 상태일때 두께 생기는거 없애기 */
+            font-size: 17px;
+            resize: none;
+            line-height: 22px;
+        }
+
+        /* 답변 저장, 초기화 버튼 */
+        #btn-box {
+            margin: 0px auto;
+            width: 250px;
+            display: none;
+        }
+        #btn-box > button:nth-child(2) {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="admin_main.html">푸릇 푸릇 푸르트</a>
+    </header>
+    <div id="container">
+        <nav>
+            <div class="navBtn"><i class="fa-solid fa-address-book fa-1x"></i>사용자 관리</div>
+            <div class="navBtn"><i class="fa-solid fa-square-pen fa-1x"></i>고객센터 관리</div>
+        </nav>
+        <section>
+            <h1>고객센터 관리 > 상세 페이지</h1>
+            <div id="content-box">
+                <table>
+                    <tr class="writing-title">
+                        <td colspan="4">강아지 vs 고양이, 당신의 선택은..?</td>
+                    </tr>
+                    <tr class="writing-id-date">
+                        <td class="writing-td-title">ID</td>
+                        <td class="writing-td-content">user1</td>
+                        <td class="writing-td-title">등록날짜</td>
+                        <td class="writing-td-content">2024-07-21</td>
+                    </tr>
+                    <tr class="writing-content">
+                        <td class="writing-td-title">내용</td>
+                        <td class="writing-td-content" colspan="3">
+                            <pre class="writing-td-content-pre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsam cumque qui impedit omnis incidunt possimus repellat ducimus voluptas autem. Voluptas repellat dolorem vero, quibusdam ullam dicta aperiam nisi a?</pre>
+                        </td>
+                    </tr>
+                </table>
+
+                <button id="answer-btn" class="btn-style">답변 등록</button>
+
+                <table id="answer-table">
+                    <tr class="writing-id-date">
+                        <td class="writing-td-title">제목</td>
+                        <td class="writing-td-content">
+                            <input type="text" id="writing-td-text" spellcheck="false">
+                        </td>
+                    </tr>
+                    <tr class="writing-content">
+                        <td class="writing-td-title">내용</td>
+                        <td class="writing-td-content">
+                            <textarea name="" id="writing-td-textarea" spellcheck="false"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <div id="btn-box">
+                    <button class="btn-style">저장</button>
+                    <button id="btn-clear" class="btn-style">초기화</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        const navBtns = document.querySelectorAll(".navBtn");
+        const answerBtn = document.querySelector("#answer-btn");
+
+        let answerTable = document.querySelector("#answer-table");
+        let nav = document.querySelector("nav");
+        let btnBox = document.querySelector("#btn-box");
+        let clearBtn = document.querySelector("#btn-clear");
+
+        let answerTitle = document.querySelector("#writing-td-text");
+        let answerContent = document.querySelector("#writing-td-textarea");
+
+        navBtns[0].addEventListener('click', function(){
+            location.href = "/admin/sub_user";
+        });
+        navBtns[1].addEventListener('click', function(){
+            location.href = "/admin/sub_center";
+        });
+
+        /* 답변 등록 버튼 클릭시 */
+        answerBtn.addEventListener('click', function(){
+            answerTable.style.display = "table";
+            nav.style.height = "1600px";
+            btnBox.style.display = "block";
+        });
+
+        /* 초기화 버튼 클릭시 */
+        clearBtn.addEventListener('click', function(){
+            answerTitle.value = "";
+            answerContent.value = "";
+        });
+    </script>
+</body>
+</html>

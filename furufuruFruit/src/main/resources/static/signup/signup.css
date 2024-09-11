@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+section{
+    width: 100%;
+    height: 1700px;
+    /* border: 3px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signupcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 670px;
+    height: 1300px;
+    margin-top: 110px;
+    background: #ffffff;
+    border: 1px;
+
+}
+  
+.header {
+    width: 466px;
+    height: 94px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+}
+  
+.user-info {
+    margin-top: 39px;
+}
+  
+.user-info div {
+    margin-top: 21px;
+}
+  
+.user-info input {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #797979;
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    width: 466px;
+    margin-top: 21px;
+    outline: none;
+}
+
+.gender {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 140px;
+    height: 23.94px;
+    padding: 30px 0px;
+    line-height: 20px;
+    margin-top: 70px;
+}
+  
+.gender input {
+    width: 20px;
+    height: 20px;
+    background: #ebebeb;
+    border: 1px solid #d2d2d2;
+    margin-top: 0px;
+}
+  
+.userinfo label {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.userinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    height: 23.94px;
+    padding: 30px 0px;
+    line-height: 20px;
+    margin-top: 10px;
+
+}
+  
+.userinfo input {
+    width: 20px;
+    height: 20px;
+    background: #ebebeb;
+    border: 1px solid #d2d2d2;
+    margin-top: 0px;
+}
+  
+.userinfo label {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.agree-check {
+    width: 450px;
+    height: 40px;
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+}
+
+.agree-check > input{
+    margin-top: 0px;
+}
+
+
+  
+div[class|="btn"] > button{
+    width: 200px;
+    height: 60px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+div[class|="btn-signup"] > button{
+    color: white;
+    background-color: rgb(255,192,0);
+    border: none;
+    cursor: pointer;
+}
+
+
+select.box {
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    padding: 5px 0 5px 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    color: #383838;
+    background-color: #ffffff;
+
+  }
+  
+.btn-signup{
+	display: flex;
+	justify-content: center;
+}  
+
+.user-info-email input{
+    width: 100px;
+
+}
+
+.user-info-email{
+    height: 100px;
+}
+
+.agree-check > input{
+    width: 20px;
+}
+
+.user-info-tel input{
+    width: 200px;
+}
+
+.user-info-adress input{
+    width: 200px;
+}
+
+.user-info-adress{
+    height: 200px;
+    margin-top: 30px;
+}
+
+.user-info-adress > :nth-child(1){
+    display: inline-block;
+}
+
+.user-info-adress > button{
+    margin-left: 10px;
+    width: 70px;
+    height: 30px;
+    border: 1px solid rgb(255,192,0);
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(255,192,0);
+    cursor: pointer;
+}
+
+#errors{
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(255,192,0);
+    color: rgb(255,192,0);
+    background-color: white;
+    margin-bottom: 20px;
+    line-height: 50px;
+}

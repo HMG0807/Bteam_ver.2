@@ -1,0 +1,298 @@
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #f2f2f2; /* 전체 배경색 */
+}
+
+/* 헤더 스타일 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255,192,0);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 헤더 하단 여백 추가 */
+.header + .container {
+    margin-top: 200px; /* 헤더 높이 + 여백 */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    font-size: 14px;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.header-actions a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.header-actions a:hover {
+    text-decoration: underline;
+}
+
+.header-middle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-bar {
+    flex: 2;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-left: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.header-actions {
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-actions a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 네비게이션 */
+.header-nav {
+    width: 100%;
+    background-color: rgb(255,192,0);
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header-nav li {
+    margin: 0 15px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+.container{
+    display : flex; 
+    height: calc(100vh - 140px); 
+    padding : 20px;
+    margin: 80px 0px 60px; /* 위 80px, 좌우 0px, 아래 60px */
+   
+}
+
+
+.sidebar{
+    width : 250px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding : 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow : auto;
+    height: 400px;
+ 
+}
+/*사이드바 제목*/
+.sidebar h2{
+    font-size : 18px;
+    margin-top:0;
+}
+/*사이드바 메뉴*/
+.sidebar ul{
+    list-style: none;
+    padding : 0;
+    margin : 0;
+}
+
+/*사이드바 항목*/
+.sidebar li{
+    margin-bottom: 20px;
+}
+
+/*사이드바 a링크*/
+.sidebar a{
+    text-decoration: none;
+    color : #333;
+}
+
+.sidebar a:hover{
+    text-decoration: underline;
+}
+
+/*사이드바 구분선*/
+.sidebar hr {  
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* 콘텐츠 스타일 */
+.content {
+    padding: 0px 20px 20px;
+    margin-left: 20px; 
+    width : 1100px;
+}
+
+
+
+
+
+/*상품 문의 박스*/
+.product-box {
+    max-width: 1100px;
+    padding: 40px;
+    background-color: #ffffff; /* 상품 문의 박스 배경색 */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 텍스트 수평 중앙 정렬 */
+    height : 800px;
+    overflow-y: auto;
+
+}
+
+/* 상품문의 박스 아래의 진한 가로선 */
+.product-box .line {
+    border-top: 2px solid #333;
+    margin: 20px 0;
+
+}
+
+/* 문의 목록 */
+.inquiry-list {
+    text-align: left; /* 문의 내용 왼쪽 정렬 */
+    padding: 10px;
+}
+
+/* 문의 항목 */
+.inquiry-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.inquiry-item:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+/* 문의 항목 정보 */
+.inquiry-info {
+    flex : 1;
+    margin-right: 20px;
+}
+
+/* 문의 항목 제목 */
+.inquiry-item h4 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    color: #888;
+}
+.inquiry-item h4 > span:nth-child(1){
+    color: black;
+}
+/* 상품문의한 제목명 스타일 추가 */
+.inquiry-item h5 {
+    font-size: 16px; /* 폰트 크기 조정 */
+    color: #333; /* 색상 조정 */
+    margin: 0 0 5px; /* 상단 여백 */
+    
+}
+/* 문의 항목 사용자명 */
+.buyuser-name {
+    font-weight: normal;
+}
+/* 문의 항목 내용 */
+.inquiry-item p {
+    font-size: 16px;
+    margin: 0;
+}
+/* 문의 항목 상태 */
+.inquiry-info .status {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+/* 문의 항목 구분선 */
+.inquiry-separator {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.inquiry-image {
+    width: 100px; /* 이미지 폭 */
+    height: auto; /* 이미지 높이는 자동으로 조정 */
+    max-height: 80px; /* 이미지 최대 높이 */
+    object-fit: cover; /* 이미지 비율을 유지하면서 잘림 방지 */
+}

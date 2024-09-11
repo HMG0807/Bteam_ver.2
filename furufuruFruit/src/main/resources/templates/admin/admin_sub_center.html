@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc8b36da76.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px; padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: rgb(255,192,0);
+            height: 50px;
+            padding-top: 10px;
+            padding-left: 10px;
+            color: white;
+        }
+        header > a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        #container{
+            display: flex;
+        }
+
+        /* nav 구역 */
+        nav{
+            background-color: rgb(140, 163, 177);
+            display: inline-block;
+            width: 200px;
+            height: calc(100vh - 50px);
+        }
+        nav > div {
+            color: white;
+            border-bottom: 1px solid #666;
+            width: 200px;
+            font-size: 1rem;
+            text-align: left;
+            padding: 18px 0px 18px 15px;
+        }
+        nav > div:hover {
+            background-color: rgb(56, 56, 56);
+            cursor: pointer;
+        }
+        nav > div:nth-child(2){
+            border-right: 7px solid rgb(56, 56, 56);
+        }
+        nav i {
+            margin-right: 5px;
+        }
+
+        /* section 구역 */
+        section{
+            display: inline-block;
+            width: 1000px;
+            padding: 20px 0px 0px 50px;
+        }
+        section > h1{
+            font-size: 30px;
+        }
+        section > #searchBox{
+            margin-top: 20px;
+            background-color: rgb(237, 242, 245);
+            padding: 25px 30px;
+        }
+        section > #searchBox > select{
+            width: 100px;
+            height: 25px;
+        }
+        section > #searchBox > input[type=text]{
+            width: 400px;
+            height: 25px;
+            position: relative;
+            padding-left: 5px;
+        }
+        section > #searchBox > button{
+            width: 70px;
+            height: 25px;
+            color: white;
+            background-color: rgb(140, 163, 177);
+            border: 0px;
+            position: absolute;
+        }
+        /* section 구역 > Column 구역 */
+        section > #columnBox {
+            margin-top: 20px;
+            padding: 14px;
+            background-color: #ccc;
+            font-weight: bold;
+            display: flex;
+        }
+        section > #columnBox > span { display: inline-block; }
+        section > #columnBox > span:nth-child(1) { width: 130px; }
+        section > #columnBox > span:nth-child(2) { width: 130px; }
+        section > #columnBox > span:nth-child(3) { width: 400px; }
+        section > #columnBox > span:nth-child(4) { width: 150px; }
+        section > #columnBox > span:nth-child(5) { width: 100px; text-align: center; }
+        /* section 구역 > Content 구역 */
+        section > .contentRows {
+            padding: 14px;
+            display: flex; /* 창 줄일때 레코드 2줄로 생겨서 flex로 지정 */
+        }
+        section > .contentRows:hover {
+            background-color: rgb(237, 242, 245);
+            cursor: pointer;
+        }
+        section > .contentRows > span { display: inline-block; }
+        section > .contentRows > span:nth-child(1) { width: 130px; }
+        section > .contentRows > span:nth-child(2) { width: 130px; }
+        section > .contentRows > span:nth-child(3) { width: 400px; }
+        section > .contentRows > span:nth-child(4) { width: 150px; }
+        section > .contentRows > span:nth-child(5) { width: 100px; text-align: center; }
+
+        /* 페이징 버튼 */
+        #pageBtn > ul {
+            display: flex;
+            width: 200px;
+            list-style-type: none;
+            margin: 0px auto;
+            margin-top: 50px
+        }
+        #pageBtn li {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: white;
+            border: 1px solid #ddd;
+            margin-left: -1px;
+        }
+        #pageBtn li:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        #pageBtn li:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        #pageBtn a{
+            text-decoration: none;
+            color: rgb(206, 154, 0);
+        }
+        #pageBtn .active{
+            background-color: rgb(255, 192, 0);
+        }
+        #pageBtn .active > a{
+            color: white;
+        }
+        #pageBtn .disabled{
+            background-color: #ddd;
+        }
+        #pageBtn .disabled > a{
+            pointer-events: none;
+            color: rgb(68, 68, 68);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="admin_main.html">푸릇 푸릇 푸르트</a>
+    </header>
+    <div id="container">
+        <nav>
+            <div class="navBtn"><i class="fa-solid fa-address-book fa-1x"></i>사용자 관리</div>
+            <div class="navBtn"><i class="fa-solid fa-square-pen fa-1x"></i>고객센터 관리</div>
+        </nav>
+        <section>
+            <h1>고객센터 관리</h1>
+            <div id="searchBox">
+                <select name="" id="">
+                    <option>전체</option>
+                    <option value="">ID명</option>
+                    <option value="">제목</option>
+                </select>
+                <input type="text" placeholder="글 제목을 입력해주세요.">
+                <button>검색</button>
+            </div>
+            <div id="columnBox">
+                <span>번호</span>
+                <span>ID</span>
+                <span>제목</span>
+                <span>등록날짜</span>
+                <span>답변여부</span>
+            </div>
+            <div th:each="scQuestion, loop : ${paging}" class="contentRows">
+                <span th:text="${paging.totalElements - (paging.number * paging.size) - loop.index}"></span>
+                <span th:text="${scQuestion.buyuser.id}"></span>
+                <span th:text="${scQuestion.title}"></span>
+                <span th:text="${#temporals.format(scQuestion.questionDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                <span th:text="${scQuestion.servicecenteranswer==null} ? 'N' : 'Y'"></span>
+            </div>
+            <!-- 페이징 버튼 -->
+            <div id="pageBtn">
+                <ul>
+                    <li th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                        <a th:href="@{|?page=${paging.number-1}|}">
+                            <span>이전</span>
+                        </a>
+                    </li>
+                    <th:block th:switch="${#strings.toString(paging.number)}">
+                        <th:block th:case="0">
+                            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                th:if="${page >= paging.number-0 and page <= paging.number+4}" 
+                                th:classappend="${page == paging.number} ? 'active'">
+                                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+                            </li>
+                        </th:block>
+                        <th:block th:case="1">
+                            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                th:if="${page >= paging.number-1 and page <= paging.number+3}" 
+                                th:classappend="${page == paging.number} ? 'active'">
+                                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+                            </li>
+                        </th:block>
+                        <th:block th:case="${paging.totalPages-2}">
+                            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                th:if="${page >= paging.number-3 and page <= paging.number+1}" 
+                                th:classappend="${page == paging.number} ? 'active'">
+                                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+                            </li>
+                        </th:block>
+                        <th:block th:case="${paging.totalPages-1}">
+                            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                th:if="${page >= paging.number-4 and page <= paging.number+0}" 
+                                th:classappend="${page == paging.number} ? 'active'">
+                                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+                            </li>
+                        </th:block>
+                        <th:block th:case="*">
+                            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                                th:if="${page >= paging.number-2 and page <= paging.number+2}" 
+                                th:classappend="${page == paging.number} ? 'active'">
+                                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+                            </li>
+                        </th:block>
+                    </th:block>
+                    <li th:classappend="${!paging.hasNext} ? 'disabled'">
+                        <a th:href="@{|?page=${paging.number+1}|}">
+                            <span>다음</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 페이징 버튼 end -->
+        </section>
+    </div>
+    <script>
+        const navBtns = document.querySelectorAll(".navBtn");
+        const rows = document.querySelectorAll(".contentRows");
+
+        /* 왼쪽 네비 바 클릭했을 때 페이지 이동 */
+        navBtns[0].addEventListener('click', function(){
+            location.href = "/admin/sub_user";
+        });
+        navBtns[1].addEventListener('click', function(){
+            location.href = "/admin/sub_center";
+        });
+
+        /* 글의 레코드 클릭했을 때 페이지 이동 */
+        rows[0].addEventListener('click', function(){
+            location.href = "admin_sub_center_detail.html";
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #f2f2f2; /* 전체 배경색 */
+}
+
+/* 헤더 스타일 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255,192,0);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 헤더 하단 여백 추가 */
+.header + .container {
+    margin-top: 200px; /* 헤더 높이 + 여백 */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    font-size: 14px;
+}
+
+.user-info span {
+    margin-right: 20px;
+}
+
+.header-actions a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.header-actions a:hover {
+    text-decoration: underline;
+}
+
+.header-middle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-bar {
+    flex: 2;
+    display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-left: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.header-actions {
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-actions a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* 네비게이션 */
+.header-nav {
+    width: 100%;
+    background-color: rgb(255,192,0);
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header-nav li {
+    margin: 0 15px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+.container{
+    display : flex; 
+    height: calc(100vh - 140px); 
+    padding : 20px;
+    margin: 80px 0px 60px; /* 위 80px, 좌우 0px, 아래 60px */
+   
+}
+
+
+.sidebar{
+    width : 250px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding : 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow : auto;
+    height: 400px;
+ 
+}
+/*사이드바 제목*/
+.sidebar h2{
+    font-size : 18px;
+    margin-top:0;
+}
+/*사이드바 메뉴*/
+.sidebar ul{
+    list-style: none;
+    padding : 0;
+    margin : 0;
+}
+
+/*사이드바 항목*/
+.sidebar li{
+    margin-bottom: 20px;
+}
+
+/*사이드바 a링크*/
+.sidebar a{
+    text-decoration: none;
+    color : #333;
+}
+
+.sidebar a:hover{
+    text-decoration: underline;
+}
+
+/*사이드바 구분선*/
+.sidebar hr {  
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* 콘텐츠 스타일 */
+.content {
+    padding: 0px 20px 20px;
+    margin-left: 20px; 
+    width : 1100px;
+}
+
+
+
+/*상품 문의 박스*/
+.product-box {
+    max-width: 1100px;
+    padding: 40px;
+    background-color: #ffffff; /* 상품 문의 박스 배경색 */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 텍스트 수평 중앙 정렬 */
+    height : 750px;
+    overflow-y: auto;
+}
+
+/* 상품문의 박스 아래의 진한 가로선 */
+.product-box .line {
+    border-top: 2px solid #333;
+    margin: 20px 0;
+}
+
+/* 문의 글 전체 박스 */
+#question-box {
+    width: 700px;
+    text-align: left;
+    margin-left: 10px;
+}
+/* 문의 글 제목 부분 */
+#question-box-title > span:nth-child(1) {
+    font-size: 19px;
+    font-weight: bolder;
+}
+#question-box-title > span:nth-child(2) {
+    color: #1A6DFF;
+    margin-left: 5px;
+    font-size: 14px;
+}
+/* 문의 글 사용자명 부분 */
+#question-box-id {
+    font-size: 15px;
+    margin-top: 10px;
+}
+#question-box-id > span:nth-child(1)::after {
+    content: "|";
+    color: #888;
+    font-size: 13px;
+    margin-left: 5px;
+}
+#question-box-id > span:nth-child(2) {
+    margin-left: 5px;
+    color: #999;
+}
+#question-box-contents {
+    margin-top: 15px;
+    font-size: 17px;
+    padding-left: 5px;
+    line-height: 28px;
+}
+/* 문의 글 답글, 삭제 버튼 */
+#question-btn-box{
+    margin-top: 10px;
+}
+#question-btn-box > a{
+    color: #1A6DFF;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-right: 3px;
+}
+#question-btn-box > a:hover{
+    text-decoration: underline;
+}
+
+/* 답변 글 박스 */
+#answer-box {
+    width: 700px;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+/* 답변 글 제목 부분 */
+#answer-box-title { position: relative; }
+#answer-box-title > span::before {
+    content: "⤷";
+    position: absolute;
+    left: -15px;
+    top: 4px;
+}
+#answer-box-title > span > input {
+    font-size: 19px;
+    font-weight: bolder;
+    border-width: 0px;
+    outline-width: 0px;
+}
+/* 답변 글 사용자명 부분 */
+#answer-box-id {
+    font-size: 15px;
+    margin-top: 10px;
+}
+#answer-box-id > span:nth-child(1)::after {
+    content: "|";
+    color: #888;
+    font-size: 13px;
+    margin-left: 5px;
+}
+#answer-box-id > span:nth-child(2) {
+    margin-left: 5px;
+    color: #999;
+}
+#answer-box-contents > textarea {
+    margin-top: 15px;
+    font-size: 17px;
+    padding-left: 5px;
+    line-height: 28px;
+    width: 700px;
+    scrollbar-width: none;
+    resize: none;
+    border-width: 0px;
+    outline-width: 0px;
+    font-family: Arial, sans-serif;
+}
+/* 답변 글 답글, 삭제 버튼 */
+#answer-btn-box{
+    margin-top: 10px;
+}
+#answer-btn-box > a{
+    color: #1A6DFF;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-right: 3px;
+}
+#answer-btn-box > a:hover{
+    text-decoration: underline;
+}
+/* 문의 글 아래의 연한 가로선 */
+.inquiry-separator{
+    margin-top: 20px;
+    border-width: 1px 0px 0px 0px;
+}

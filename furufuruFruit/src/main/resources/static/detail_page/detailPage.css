@@ -1,0 +1,351 @@
+/*이순*/
+*{
+    /* border: 3px solid black; */
+    /* margin: auto; */
+}
+
+
+
+/********************** 전체 세팅 끝 **********************
+*********************************************************/
+
+
+
+#main{
+    width: 1150px;
+    margin: auto;
+    height: fit-content;
+    display: flex;
+    margin-top: 30px;
+    border-bottom: gray solid 1px;
+    padding-bottom: 50px;
+
+    
+}
+
+
+#main>img{
+    border-radius: 15px;
+    margin-right: 30px;
+    margin-left: auto;
+}
+
+
+.mainInfor{
+    margin-right: auto;
+}
+
+
+.mainInforBox{
+    display: flex;
+    border-top: 1px solid gray;
+}
+
+
+.between{
+    justify-content: space-between;
+    border: none;
+}   
+
+
+.end{
+    justify-content: end;
+}
+
+
+.totalPrice{
+    font-size: 20px;
+}
+
+
+.rtBox{
+    width: 80px;
+    margin-right: 10px;
+}
+
+.ltBox{
+    width: 390px;
+}
+
+
+.itemTitle{
+    font-size: 10px;
+}
+
+.itemCount{
+    display: flex;
+    justify-content: space-between;
+}
+
+.countbtn{
+    display: flex;
+}
+
+.wishbtn.act{
+    background-color: RGB(255,192,0);
+    color: aliceblue;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+.wishbtn{
+    background-color: gray;
+    color: aliceblue;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.cartbtn{
+    width: 400px; 
+    height: 50px;
+    background-color: RGB(255,192,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+
+}
+
+.carttext{
+    text-decoration: none;
+}
+
+/*민지가 준 코드*/
+/* .button {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lecBtn {
+    display: inline-block;
+    background-color: #c2a2b4;
+    color:white;
+    padding: 15px 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.lecBtn:hover {
+    background-color: #608fb7;
+    transform: translateY(-3px);
+} */
+
+
+
+
+
+
+
+
+/********************** main 끝 *************************
+*********************************************************/
+
+
+
+
+#infor{
+    margin: auto;
+    width: 1150px;
+    text-align: center;
+    padding: 50px 0;
+    border-bottom:gray solid 1px;
+}
+
+p{
+    font-size: 30px;
+}
+
+
+
+/********************** infor 끝 *************************
+*********************************************************/
+
+
+#detail{
+    width: 1150px;
+    margin: auto;
+}
+
+
+
+ul{
+    -webkit-text-size-adjust: 100%;
+    --swiper-theme-color: #007aff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Noto Sans KR";
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 36px;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    line-height: 18px;
+    letter-spacing: -0.5px;
+}
+
+.rtlist{
+    -webkit-text-size-adjust: 100%;
+    --swiper-theme-color: #007aff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Noto Sans KR";
+    list-style-type: none;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    line-height: 18px;
+    letter-spacing: -0.5px;
+    box-sizing: border-box;
+    margin: 0;
+    width: 190px;
+    padding: 0px 18px 18px;
+    background-color: rgb(247, 247, 247);
+    word-break: break-all;
+    white-space: pre-line;
+    padding-top: 18px;
+}
+
+.ltlist{
+    -webkit-text-size-adjust: 100%;
+    --swiper-theme-color: #007aff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Noto Sans KR";
+    list-style-type: none;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.5px;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    width: 380px;
+    padding: 0px 18px 18px;
+    color: rgb(102, 102, 102);
+    white-space: pre-line;
+    padding-top: 18px;
+}
+
+
+
+
+
+
+/************************ detail 끝************************
+**********************************************************/
+
+
+
+
+
+
+#reviews{
+    margin: auto;
+    width: 1150px;
+    
+}
+
+.reviewTitle{
+    font-size: 30px;
+}
+
+
+.reviewbox{
+    border-bottom: black solid 3px;
+}
+.top{
+    border-top: black solid 3px;
+}
+
+.review{
+    border-bottom: gray solid 1px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 50px;
+    width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+.prevbtn{
+    margin-right: 20px;
+    width: 50px;
+    font-size: 20px;
+}
+
+.nextbtn{
+    width: 50px;
+    font-size: 20px;
+}
+
+
+
+
+/********************리뷰 끝**************************
+***************************************************/
+
+
+
+
+#QnA{
+    margin: auto;
+    margin-bottom: 30px;
+    width: 1150px;
+}
+
+
+table, th, td{
+    border-collapse: collapse;
+    text-align: center;
+    border: gray solid 3px;
+
+}
+.tableTitle{
+    text-align: left;
+}
+
+
+
+
+
+
+/************문의 끝***************************
+***************************************/
+
+
+
+#footer{
+    background-color: RGB(255,192,0);
+    height: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************** footer 끝 **********************
+*********************************************************/
