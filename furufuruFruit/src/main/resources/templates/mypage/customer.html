@@ -1,53 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>푸릇푸릇 푸르츠</title>
-    <link rel="stylesheet" th:href="@{/mypage/style.css}">
-</head>
-<body>
-    <header class="header">
-        <div class="header-top">
-            <div class="user-info">
-                <span>환영합니다, 사용자님</span>
-                <a href="#">고객센터</a>
-            </div>
-            <div class="header-actions">
-                <a href="#">내 주문</a>
-                <a href="#">찜한 상품</a>
-                <a href="#">자주 구매</a>
-            </div>
-        </div>
-        <div class="header-middle">
-            <div class="logo">
-                <a href="#">로고</a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="검색">
-                <button type="submit">검색</button>
-            </div>
-            <div class="header-actions">
-                <a href="#">배송지</a>
-                <a href="#">찜한 상품</a>
-                <a href="#">장바구니</a>
-            </div>
-        </div>
-        <nav class="header-nav">
-            <ul>
-                <li><a href="#">카테고리</a></li>
-                <li><a href="#">신상품</a></li>
-                <li><a href="#">베스트셀러</a></li>
-                <li><a href="#">특가 혜택</a></li>
-            </ul>
-        </nav>
-    </header>
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+<link rel="stylesheet" th:href="@{/mypage/style.css}">
 
-   <div class="container">
+
+   <div class="cContainer">
         <aside class="sidebar">
             <h2>자주 찾는 메뉴</h2>
             <ul>
-                <li><a href="/mypage/order">주문 내역</a></li>
+                <li><a th:href="@{/mypage/order}">주문 내역</a></li>
                 <li><a href="#" >찜한 상품</a></li>
                  <li><a href="#" >자주 구매</a></li>
                
@@ -57,7 +17,7 @@
             <ul>
                 <li><a href="#">상품 후기</a></li>
                 <li><a th:href="@{/mypage/inquiry/products}">상품 문의</a></li>
-                <li><a href="#">장바구니</a></li>
+                <li><a th:href="@{/cart/${user.buyuserId}}">장바구니</a></li>
             </ul>
             <hr>    <!--가로선으로 나누기 위함 -->
             <h2>내 정보 관리</h2>
@@ -91,9 +51,9 @@
                 <div class="additional-box">
                     <h2>2024.xx.xx 주문</h2>
                     <div class="add1-box">
-                        <h4>배송상태</h4> 
+                        <h4>배송대기</h4> 
                         <div class="product-info">
-                            <img src="/manboong.png" alt="상품 이미지" class="product-image">
+                            <img src="/mypage/manboong.png" alt="상품 이미지" class="product-image">
                             <div class="product-details">
                                 <div class="product-name-wrapper">
                                     <p class="product-name">유기농 꿀사과 푸르츠</p>
@@ -108,5 +68,6 @@
                          
             </div>
         </main>
-</body>
-</html>
+       </div>
+       </div>
+	</html>
