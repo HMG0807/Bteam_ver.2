@@ -12,20 +12,17 @@
 
 
 
-
     <div id="main">
-        <img th:src="@{/detail_page/x-mas_gunchimSSAK.jpg}" width="500" height="750">
+       <img th:src="@{|/${product.path}|}" width="500" height="750" style="object-fit: cover;">
+    
 
 
 
         
         <div class="mainInfor">
-            <div style="width: 490px; font-size: x-large;">
-                <span th:text="${product.name}"></span>
-            </div>
             <div class="mainPrice">
                 <h2>
-                    <span style="color: rgb(255, 99, 99);">9724%</span>
+                    <span th:text="${product.name}"></span>
                     <span th:text="${product.price}"></span><span>원</span>
                 </h2>
             </div>
@@ -69,7 +66,7 @@
                     <div class="itemCount">
                         <div class="countbtn">
                             <button class="plusbtn"> + </button>
-                            <input type="text" style="text-indent: 1.3rem; width: 5rem;" class="p_num">
+                            <input name="count" type="text" style="text-indent: 1.3rem; width: 5rem;" class="p_num">
                             <button class="minusbtn"> - </button>
                         </div>
                         <div>
@@ -85,12 +82,15 @@
             </div>
             <div class="mainInforBox between">
                 <button class="wishbtn" onclick="toggleAct(this)">♥</button>
-                <a th:href="@{|/cart/1|}" class="carttext"><div class="cartbtn">장바구니 담기</div></a>
+                <a th:href="@{|/cart/${buyuserId}|}" id="addcart" class="carttext"><div class="cartbtn">장바구니 담기</div></a>
             </div>
 
         </div>
     </div>
 
+	<form th:action="@{/product/${product.productId}}" name="form1" method="post">
+		<input type="hidden" name="count" th:value="p_num">
+	</forn>
 
 
 
@@ -98,20 +98,8 @@
     <!--상품 정보-->
 
     <div id="infor">
+    	
         <p><span th:text="${product.explan}"></span></p>
-        <p>매년 반복되는 크리스마스 <br> 예수님 생일에 지들이 뭐라고 커플들은 난리치는지</p>
-        <img th:src="@{/detail_page/airportThief.jpg}" alt="">
-        <p style="color: rgb(184, 17, 17);">예예예 예수님 생일이 언제부터 니들 파티날이 되, 되었는데,~ </p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>커플? 크리스마스에 사람들한테 치여서 별로임ㅋㅋ</p>
-        <img th:src="@{/detail_page/justclowns.jpeg}" alt="">
-        <p style="color: rgb(184, 17, 17);">응~ 안 사귀면 그만이야~</p>
-        <br><br><br><br><br>
-        <p>정신 승리라고 느껴질 때 먹으면 좋은 케이크!</p>
-        <p style="color: rgb(184, 17, 17);">유기농 재료만 써서 정성껏 만든 화려한군침케이크</p>
     </div>
 
 
@@ -170,7 +158,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -190,7 +178,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -210,7 +198,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -230,7 +218,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -250,7 +238,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -270,7 +258,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -290,7 +278,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -310,7 +298,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -330,7 +318,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">
@@ -350,7 +338,7 @@
                 <span th:text="${product.name}"></span>
             </h3>
             <p class="css-y49dcn e36z05c13">
-                같이 시킨 마카롱도 군침 싸악 도네요. 메리 솔크
+                같이 시킨 마카롱도 군침 싸악 도네요.
             </p>
             <div class="css-la25nj e36z05c2">
                 <button class="css-p5degw e36z05c10">

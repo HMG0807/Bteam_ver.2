@@ -34,5 +34,7 @@ public class cart {
 	@ManyToOne
 	@JoinColumn(name = "buyuserId")
 	private buyuser buyuser;
+
+		
 	
 }

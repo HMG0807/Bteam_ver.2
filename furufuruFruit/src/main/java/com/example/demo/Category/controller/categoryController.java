@@ -34,14 +34,25 @@ public class categoryController {
 	{
 	      List<product> plist = this.cs.search(keyword);
 	      List<product> clist = new ArrayList<product>();
-//	      int t = 0;
-//	      for(int i = 0; i <plist.size(); i++) {
-//	    	  if([plist[i].equals(clist[i])) {
-//	    		  
-//	    	  }
-	    	  
-//	      }
+	      
+	      int t = 0;
+	      for(int i = 0; i <plist.size(); i++) {
+	    	 ;
+	    	  if(plist.get(i).getCategory().equals(category)) {
+	    		 
+	   			clist.add(plist.get(i));  	
+	   			
+	    	  }
+	      	  
+	      }
+	      
+	      if(!clist.isEmpty()) {
+	    	  model.addAttribute("category",clist);
+	    	  return "/category/category2";
+	      }
+	      
 	      model.addAttribute("productList", plist);
+	      
 	      return "/category/category";
 	   }
 	

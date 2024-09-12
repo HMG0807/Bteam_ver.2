@@ -92,12 +92,18 @@
             font-weight: bold;
             display: flex;
         }
+        
+        
         section > #columnBox > span { display: inline-block; }
         section > #columnBox > span:nth-child(1) { width: 130px; }
-        section > #columnBox > span:nth-child(2) { width: 130px; }
-        section > #columnBox > span:nth-child(3) { width: 400px; }
-        section > #columnBox > span:nth-child(4) { width: 130px; }
+        
+         /* 간격을 위해 css 수정함   남동현*/
+        section > #columnBox > span:nth-child(2) { margin-right : auto;  }
+        section > #columnBox > span:nth-child(3) { margin-right : auto; }
+        section > #columnBox > span:nth-child(4) { width: 150px; }
         section > #columnBox > span:nth-child(5) { width: 150px; }
+        
+        
         /* section 구역 > Content 구역 */
         section > .contentRows {
             padding: 14px;
@@ -106,14 +112,70 @@
         section > .contentRows > span { display: inline-block; }
         section > .contentRows > span:nth-child(1) { width: 130px; }
         section > .contentRows > span:nth-child(2) { width: 130px; }
-        section > .contentRows > span:nth-child(3) { width: 400px; }
-        section > .contentRows > span:nth-child(4) { width: 130px; }
+        
+        /* 간격을 위해 css 수정함   남동현*/
+        section > .contentRows > span:nth-child(3) {  margin-right : auto; }
+        section > .contentRows > span:nth-child(4) { width: 150px; }
         section > .contentRows > span:nth-child(5) { width: 150px; }
+        
+        
+        
+        /* 페이징 버튼 */
+        #pageBtn > ul {
+            display: flex;
+            width: 200px;
+            list-style-type: none;
+            margin: 0px auto;
+            margin-top: 50px
+        }
+        #pageBtn li:not(.active):not(.disabled):hover {
+            background-color: #eee;
+        }
+        #pageBtn li:not(.active):not(.disabled):hover > a {
+            color: rgb(40, 40, 255);
+        }
+        #pageBtn li {
+            display: inline-block;
+            background-color: white;
+            border: 1px solid #ddd;
+            margin-left: -1px;
+        }
+        #pageBtn li:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        #pageBtn li:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        #pageBtn a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 6px 12px;
+            color: rgb(206, 154, 0);
+        }
+        #pageBtn .active {
+            background-color: rgb(255, 192, 0);
+        }
+        #pageBtn .active > a {
+            color: white;
+        }
+        #pageBtn .disabled {
+            background-color: #ddd;
+        }
+        #pageBtn .disabled > a {
+            pointer-events: none; /* 포인터 이벤트 동작 X */
+            color: rgb(68, 68, 68);
+        }
+        
+        
+        
     </style>
 </head>
 <body>
     <header>
-        <a href="admin_main.html">푸릇 푸릇 푸르트</a>
+    	<!--클릭시 /master로 이동 -->
+        <a th:href="@{/master}">푸릇 푸릇 푸르츠</a>
     </header>
     <div id="container">
         <nav>
@@ -122,54 +184,97 @@
         </nav>
         <section>
             <h1>사용자 관리</h1>
+          
+            <!-- 검색창 기능 구현을 위해 form 태그 남동현-->
+             <form th:action="@{/admin/sub_user}" method="get" id="searchForm">
+				<input type="hidden" id="kw" name="kw" th:value="${kw}">
+	    	</form>
             <div id="searchBox"> <!-- 검색창 -->
                 <select name="" id="">
                     <option>전체</option>
                     <option value="">구매자</option>
                     <option value="">판매자</option>
                 </select>
-                <input type="text" placeholder="ID명 또는 이름을 입력해주세요.">
-                <button>검색</button>
+                <input type="text" id="search_kw" placeholder="ID명 또는 이름을 입력해주세요.">
+                <button id="searchBtn">검색</button>
             </div>
+        
             <div id="columnBox"> <!-- 테이블 컬럼 -->
                 <span>ID</span>
                 <span>이름</span>
-                <span>주소</span>
-                <span>등록상태</span>
+                <span>주소</span>               
                 <span>등록날짜</span>
             </div>
-            <div class="contentRows">
-                <span>oracle</span>
-                <span>홍길동</span>
-                <span>대한민국 그옛날 어딘가 낡은집</span>
-                <span>미등록</span>
-                <span>2024-07-21</span>
+            <div th:each="buyuser:${paging}" class="contentRows">
+                <span th:text="${buyuser.id}"></span>
+                <span th:text="${buyuser.name}"></span>
+                <span th:text="${buyuser.address}"></span>
+                <span th:text="${#temporals.format(buyuser.registerDate, 'yyyy-MM-dd HH:mm' )}"></span>
             </div>
-            <div class="contentRows">
-                <span>hmg123</span>
-                <span>이몽룡</span>
-                <span>서울의 좋은 집</span>
-                <span>등록</span>
-                <span>2024-06-18</span>
-            </div>
-            <div class="contentRows">
-                <span>kakaka</span>
-                <span>춘향</span>
-                <span>제주도의 살기 편한 집</span>
-                <span>미등록</span>
-                <span>2024-06-11</span>
-            </div>
+         <div id="pageBtn">
+        <ul>
+            <li th:classappend="${!paging.hasPrevious} ? 'disabled'">
+				 <a th:href="@{|?page=${paging.number-1}|}">
+				        <span>이전</span>
+				 </a>
+            </li>
+            <li th:each="page : ${#numbers.sequence(0, paging.totalPages-1)}"
+                th:if="${page >= paging.number-2 and page <= paging.number+2}"
+                th:classappend="${page == paging.number} ? 'active'">
+                <a th:text="${page}" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li th:classappend="${!paging.hasNext} ? 'disabled'">
+		      <a th:href="@{|?page=${paging.number+1}|}">
+		        <span>다음</span>
+		      </a>
+            </li><!-- 다음 페이징 처리 종료부분 -->
+        </ul>
+	</div>
+         
+         
+         
+         
         </section>
     </div>
     <script>
+       // 변수 정의 및 초기화
         const navBtns = document.querySelectorAll(".navBtn");
+        const searchBtn = document.getElementById('searchBtn');
+        const searchKw = document.getElementById('search_kw');
+        const searchForm = document.getElementById('searchForm');
+        const kwInput = document.getElementById('kw');
 
+
+
+		// 네비게이션 버튼 클릭 기능 
         navBtns[0].addEventListener('click', function(){
             location.href = "/admin/sub_user";
         });
         navBtns[1].addEventListener('click', function(){
             location.href = "/admin/sub_center";
         });
+        
+    
+    
+    
+    
+    
+    	//검색 버튼 클릭시
+		searchBtn.addEventListener('click', function() {
+		    document.getElementById('kw').value = document.getElementById('search_kw').value;
+		    document.getElementById('searchForm').submit();
+		});
+    
+    		
+			// 검색창에서 Enter 키를 누르고 있을때 발생함 =  keydown 
+        searchKw.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {    // Enter 키 임을 확인함 . 
+                event.preventDefault();   // Enter 키 기본 동작(줄 바꿈) 방지해줌  
+                kwInput.value = searchKw.value;
+                searchForm.submit();
+            }
+        });
+    
     </script>
 </body>
 </html>

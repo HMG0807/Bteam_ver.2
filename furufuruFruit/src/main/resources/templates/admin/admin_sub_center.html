@@ -84,6 +84,9 @@
             border: 0px;
             position: absolute;
         }
+        section #searchBtn:hover {
+            cursor: pointer;
+        }
         /* section 구역 > Column 구역 */
         section > #columnBox {
             margin-top: 20px;
@@ -122,9 +125,14 @@
             margin: 0px auto;
             margin-top: 50px
         }
+        #pageBtn li:not(.active):not(.disabled):hover {
+            background-color: #eee;
+        }
+        #pageBtn li:not(.active):not(.disabled):hover > a {
+            color: rgb(40, 40, 255);
+        }
         #pageBtn li {
             display: inline-block;
-            padding: 6px 12px;
             background-color: white;
             border: 1px solid #ddd;
             margin-left: -1px;
@@ -137,28 +145,30 @@
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
         }
-        #pageBtn a{
+        #pageBtn a {
             text-decoration: none;
+            display: inline-block;
+            padding: 6px 12px;
             color: rgb(206, 154, 0);
         }
-        #pageBtn .active{
+        #pageBtn .active {
             background-color: rgb(255, 192, 0);
         }
-        #pageBtn .active > a{
+        #pageBtn .active > a {
             color: white;
         }
-        #pageBtn .disabled{
+        #pageBtn .disabled {
             background-color: #ddd;
         }
-        #pageBtn .disabled > a{
-            pointer-events: none;
+        #pageBtn .disabled > a {
+            pointer-events: none; /* 포인터 이벤트 동작 X */
             color: rgb(68, 68, 68);
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="admin_main.html">푸릇 푸릇 푸르트</a>
+        <a th:href="@{/master}">푸릇 푸릇 푸르츠</a>
     </header>
     <div id="container">
         <nav>
@@ -168,13 +178,13 @@
         <section>
             <h1>고객센터 관리</h1>
             <div id="searchBox">
-                <select name="" id="">
-                    <option>전체</option>
-                    <option value="">ID명</option>
-                    <option value="">제목</option>
+                <select name="searchSelect" id="searchSelect">
+                    <option value="total" th:selected="${kwType} == total">전체</option>
+                    <option value="id" th:selected="${kwType} == id">ID명</option>
+                    <option value="title" th:selected="${kwType} == title">제목</option>
                 </select>
-                <input type="text" placeholder="글 제목을 입력해주세요.">
-                <button>검색</button>
+                <input type="text" id="search_kw" th:value="${kw}" placeholder="ID명 또는 제목을 입력해주세요." onkeyup="enterkey()">
+                <button id="searchBtn">검색</button>
             </div>
             <div id="columnBox">
                 <span>번호</span>
@@ -183,7 +193,7 @@
                 <span>등록날짜</span>
                 <span>답변여부</span>
             </div>
-            <div th:each="scQuestion, loop : ${paging}" class="contentRows">
+            <div th:each="scQuestion, loop : ${paging}" class="contentRows" th:attr="data-id=${scQuestion.cquestionId}">
                 <span th:text="${paging.totalElements - (paging.number * paging.size) - loop.index}"></span>
                 <span th:text="${scQuestion.buyuser.id}"></span>
                 <span th:text="${scQuestion.title}"></span>
@@ -244,10 +254,15 @@
             </div>
             <!-- 페이징 버튼 end -->
         </section>
+        <form th:action="@{/admin/sub_center}" method="get" id="searchForm">
+			<input type="hidden" id="kwType" name="kwType" th:value="${kwType}">
+			<input type="hidden" id="kw" name="kw" th:value="${kw}">
+	    </form>
     </div>
     <script>
         const navBtns = document.querySelectorAll(".navBtn");
         const rows = document.querySelectorAll(".contentRows");
+        const searchBtn = document.querySelector("#searchBtn");
 
         /* 왼쪽 네비 바 클릭했을 때 페이지 이동 */
         navBtns[0].addEventListener('click', function(){
@@ -257,11 +272,28 @@
             location.href = "/admin/sub_center";
         });
 
-        /* 글의 레코드 클릭했을 때 페이지 이동 */
-        rows[0].addEventListener('click', function(){
-            location.href = "admin_sub_center_detail.html";
-        });
-
+        /* 글 하나를 클릭했을 때 상세 페이지 이동 */
+        for(let row of rows) {
+            row.addEventListener('click', function(){
+                location.href = "/admin/sub_center_detail/" + row.getAttribute("data-id");
+            });
+        }
+        
+        //검색 버튼 클릭시
+		searchBtn.addEventListener('click', function() {
+		    document.getElementById('kw').value = document.getElementById('search_kw').value;
+		    document.getElementById('kwType').value = document.getElementById('searchSelect').value;
+		    document.getElementById('searchForm').submit();
+		});
+		
+		//검색창에서 엔터 버튼 클릭시
+		function enterkey() {
+			if (window.event.keyCode == 13) { //엔터키가 눌렸을 때 
+		    	document.getElementById('kw').value = document.getElementById('search_kw').value;
+		    	document.getElementById('kwType').value = document.getElementById('searchSelect').value;
+		    	document.getElementById('searchForm').submit();
+		    }
+		}
     </script>
 </body>
 </html>
