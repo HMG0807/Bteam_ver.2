@@ -196,19 +196,21 @@
 		<div class="goods-layout">
 			<div id="goodswrap" class="row row-cols-1 row-cols-md-4 g-4">
 
-
+				<!--상품 클릭시 상세페이지로 넘어감-->
 				<div class="col" th:each="product : ${paging}">
-					<div class="card" style="cursor: pointer;" onclick="location.href='#';">
-						<img th:src="${product.path}" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title" th:text="'[상품명] '+${product.name}">
-							</h5>
-							<p class="card-text" th:text="${product.price} + '원'">
-							</p>
-							<p th:text="${product.explan}">
-							</p>
+					<a th:href="@{|/product/${product.productId}|}">
+						<div class="card" style="cursor: pointer;" onclick="location.href='#';">
+							<img th:src="${product.path}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title" th:text="'[상품명] '+${product.name}">
+								</h5>
+								<p class="card-text" th:text="${product.price} + '원'">
+								</p>
+								<p th:text="${product.explan}">
+								</p>
+							</div>
 						</div>
-					</div>
+					 </a>
 				</div>
 
 
