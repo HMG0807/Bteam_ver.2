@@ -1,0 +1,154 @@
+*{
+    /* border: 3px solid RGB(255,192,0); */
+    margin: 0;
+    
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+/*장바구니 문구*/
+.cartText{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+
+.cartMain{
+    display: flex;
+    height: 85%;
+    justify-content: center;
+}
+
+
+
+
+/*카트구매목록div*/
+.cart{
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cartCheck{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 550px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+.cartList{
+    width: 600px ;
+}
+/*물건 리스트 구역만 나누고 디테일 안함*/
+.item{
+    height: 80px;
+    margin: 10px 0;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.itemCheck{
+    display: flex;
+    padding-left: 18px;
+}
+.itemInfor{
+    display: flex;
+    padding-left: 35px;
+}
+.itemImg{
+    width: 10%;
+    height: 10%;
+    border-radius: 10px;
+}
+.itemCount{
+    margin-left: 15px;
+}
+.cartRt{
+    margin-left: 10px;
+}
+.cartCash{
+    height: 210px;
+    width: 400px;
+    text-align: start;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.payment{
+    font-size: 20px;
+    font-weight: bold;
+}
+.cartInline{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.cartInlineTotal{
+    display: flex;
+    justify-content: space-between;
+}
+.itemPrice{
+    font-size: 15px;
+}
+.sale.pay{
+    color: red;
+}
+.loginsale{
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+}
+.total{
+    align-self: center;
+}
+.totalPrice{
+    font-size: 20px;
+    font-weight: bold;
+
+    
+}
+
+p{
+	margin-bottom: 0;
+}
+.cupon{
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+}
+.cartBuy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: RGB(255,192,0);
+    width: 420px;
+    
+}
+
+/*-----------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
