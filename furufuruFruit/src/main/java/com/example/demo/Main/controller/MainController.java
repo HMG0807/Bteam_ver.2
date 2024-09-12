@@ -2,6 +2,7 @@ package com.example.demo.Main.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,16 +23,23 @@ public class MainController {
 	private final MainRepository mr;
 	
 	@GetMapping("/main")
-	public String main(Model model) {
+	public String main(Model model,@RequestParam(value="page", defaultValue="0") int page) {
 
 	
-		List<product> Alllist = this.mr.findAll();		
-		model.addAttribute("productList", Alllist);
+		Page<product> Alllist = this.ms.getList(page);		
+		model.addAttribute("paging", Alllist);
 		
 		return "/main/main";
 		
 	}
 		
-
+	@GetMapping("/")
+	public String back() {
+		
+		return "redirect:/main";
+	}
+	
+	
+	
 	
 }

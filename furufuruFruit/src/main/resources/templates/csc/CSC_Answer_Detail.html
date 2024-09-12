@@ -1,0 +1,67 @@
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content">
+<link rel="stylesheet" th:href="@{/csc/CSC.css}">
+
+    <!-- Main -->
+    <section>
+        <!-- section -->
+        <div class="sec">
+            <!-- side bar -->
+            <div class="side-bar">
+                <h1>고객센터</h1>
+                <li>
+                    <a href="">공지사항</a>
+                </li>
+                <li>
+                    <a href="">자주묻는질문</a>
+                </li>
+                <li>
+                    <a th:href="@{/csc}">1:1문의하기</a>
+                </li>
+            </div>   
+            <!-- side bar end -->
+            
+            <!-- main bar -->
+            <div id="mainbox" class="main-bar">
+                <!-- title -->
+                <div class="title">
+                    <h1>답변 내용</h1>
+                </div>
+                <!-- title end -->
+
+                <!-- Question form -->
+
+                    <!-- subject -->
+                <div class="qs-info-subject" style="margin-top: 50px;">
+                    <h3>제목</h1>
+                    <input type="text" th:value="${answer.title}" readonly>
+                </div>
+                <!-- subject end -->
+
+                <!-- content-->
+                <div class="qs-info-content" style="margin-top: 50px;">
+                    <h4>내용</h4>
+                    <textarea th:text="${answer.contents}" readonly></textarea>
+                </div>
+                <!-- content end -->
+                <div id="answerBtnBox">
+	                <a id="returnBtn" href="javascript:void(0)">이전으로 가기</a>
+	            </div>
+                <!-- Question form end -->
+            </div>
+            <!-- main bar end -->
+            
+        </div>
+        <!-- section end -->
+        
+    </section>
+    <!-- main end -->
+    <script type="text/javascript">
+        let returnBtn = document.querySelector("#returnBtn");
+
+        returnBtn.addEventListener('click', function(){
+            history.back();
+        });
+	</script>
+</div>
+</html>
