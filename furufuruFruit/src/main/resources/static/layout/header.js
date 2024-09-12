@@ -25,22 +25,23 @@ logobtn.addEventListener("click", function(){
 
 
 
-let pagelink = document.querySelector(".page-link");
+let pagelink = document.querySelectorAll(".page-link");
 let category = document.querySelector(".search-bnticon");
 let categoryblock = document.querySelector("#category");
 let keywordblock = document.querySelector("#keyword");
 let submit = document.form1;
 
-// for(let i=0; i<pagelink.length; i++){
-        pagelink.addEventListener("click", function(e){
-        alert("나와라");
-        categoryblock.value = e.target;
+
+        Array.from(pagelink).forEach(function(element){
+           
+        element.addEventListener("click", function(e){
+        categoryblock.value = e.currentTarget.textContent; 
         keywordblock.value = "";
         submit.submit();
-        //console.log(e.currentTarget);
-        ;
-       // 이벤트 리스너 재설계, 메뉴 쪽에서 메뉴들에 대한 정보 클릭을 했을 때 페이지 링크 클릭했을 때로 가야함
-           
-        //document.form1.submit();
+        
     });
-// }
+
+
+        });
+
+        
