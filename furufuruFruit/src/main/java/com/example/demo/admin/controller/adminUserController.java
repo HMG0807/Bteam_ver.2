@@ -43,8 +43,7 @@ public class adminUserController {
     	
     	
     	model.addAttribute("kw", kw);
-    	
-    	
+    
     	
         return "admin/admin_sub_user"; // 뷰 이름 반환
         
