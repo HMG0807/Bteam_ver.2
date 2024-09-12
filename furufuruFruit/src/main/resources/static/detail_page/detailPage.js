@@ -94,6 +94,8 @@ plusbtn.addEventListener('click',function(){
 //     return nstr;
 // };
       
-    
-    
-    
+let addCart = document.querySelector("#addcart");
+
+addCart.addEventListener('click',function(){
+    document.form1.submit();
+});

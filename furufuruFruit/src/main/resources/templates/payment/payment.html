@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="payment.css">
-</head>
-<body>
-    <div id="header"></div>
+<html layout:decorate="~{layout/layout}">
+<div layout:fragment="content" class="container my-3">
+<link rel="stylesheet" th:href="@{|/payment/payment.css|}">
+
+
     <div id="main">
         <h2 class="orderList">주문서</h2>
         <div>
@@ -92,6 +88,8 @@
             </div>
         </div>
     </div>
-    <div id="footer"></div>
-</body>
+    
+    
+    <script th:src="@{/payment/payment.js}"></script>
+</div>
 </html>

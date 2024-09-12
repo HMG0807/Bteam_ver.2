@@ -126,11 +126,15 @@
 		  font-weight: bolder;
 		  
 		  }
+
+      .card-img-top{
+        display:block; margin:auto;
+      }
 		
 
   </style>
  
- <!-- ------------------------------------------슬라이드 바---------------------------------------------------------------------- -->       
+ <!-- 슬라이드 바-->       
         <div id="slide-layout">
           <div class="slide-bar">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -156,8 +160,8 @@
             </div>
           </div>
         </div>
- <!-- ---------------------------------------써클형 제품 링크------------------------------------------------------------------------- -->         
-       <div id="content-layout">   <!---컨텐츠 영역 크기 제한----> 
+ <!---써클형 제품 링크-->         
+       <div id="content-layout">   <!---컨텐츠 영역 크기 제한--> 
         <div id="product-layout">
          <div class="product-link">
             <a href="#">과일
@@ -177,7 +181,7 @@
             </a>
          </div>
        </div>           
- <!--------------------------------------------상품 진열---------------------------------  -->
+ <!--상품 진열-->
         
         <p>
           <br><h2>강렬한 당도, 푸릇 과일들!</h2>
@@ -188,8 +192,9 @@
           <div class="row row-cols-1 row-cols-md-4 g-4">
             
             <div class="col" th:each="product : ${productList}">
-             <div class="card" style="cursor: pointer;" onclick="location.href='#';">
-                <img th:src="${product.path}" class="card-img-top" alt="...">
+            <a th:href="@{|/product/${product.productId}|}">
+            	<div class="card" style="cursor: pointer;">
+                <img th:src="${product.path}" class="card-img-top" alt="..." width="200" height="200" style="object-fit: contain;" >
                 <div class="card-body">
                   <h5 class="card-title" th:text="'[상품명] '+${product.name}">
                   </h5>
@@ -199,16 +204,15 @@
                   </p>
                 </div>
               </div>
-           
+            </a>
+            	
             
             </div>
-
-
 
               </div>
             </div>
           </div>
-
+		
     	
 		 <script src="/main/bootstrap.min.js"></script>
         </div>

@@ -155,8 +155,8 @@
                 </div>
               </form>
               <span class="shopping-mypage">
-                <!--0909 이순 장바구니 연동중(추후 수정 예정)-->
-              <a th:href="@{|/cart/1|}" class="cart">장바구니</a>
+                <!--0912 이순 장바구니 연동(야매)-->
+              <a th:href="@{|/cart/${buyuserId}|}" class="cart">장바구니</a>
                <a href="/csc">고객센터</a>
                <a sec:authorize="isAnonymous()"href="#" hidden>마이페이지</a>
                <a sec:authorize="isAuthenticated()" href="#">마이페이지</a>
