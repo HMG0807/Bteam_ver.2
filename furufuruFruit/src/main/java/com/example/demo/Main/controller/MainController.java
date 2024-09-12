@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.DetailPage.service.detailpageservice;
@@ -21,6 +22,7 @@ public class MainController {
 
 	private final MainService ms;
 	private final MainRepository mr;
+	private final detailpageservice dpR;
 	
 	@GetMapping("/main")
 	public String main(Model model,@RequestParam(value="page", defaultValue="0") int page) {
@@ -32,7 +34,9 @@ public class MainController {
 		return "/main/main";
 		
 	}
+	
 		
+
 	@GetMapping("/")
 	public String back() {
 		
@@ -40,6 +44,6 @@ public class MainController {
 	}
 	
 	
-	
+
 	
 }
