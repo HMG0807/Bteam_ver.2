@@ -47,10 +47,14 @@
                 <!-- content end -->
                 <div>
                     <a class="subBtn" th:href="@{|/csc/modify/${question.cquestionId}|}">수정하기</a>
-                    <!--<a class="subBtn" th:href="@{|/csc/delete/${question.cquestionId}|}">삭제하기</a>-->
                     <a class="subBtn delete" href="javascript:void(0);"
                     th:data-uri="@{|/csc/delete/${question.cquestionId}|}">삭제하기</a>
                 </div>
+                <th:block th:if="${question.servicecenteranswer!=null}">
+	                <div id="answerBtnBox">
+	                    <a id="answerBtn" th:href="@{|/csc/answer/${question.servicecenteranswer.canswerId}|}">답변 보기</a>
+	                </div>
+                </th:block>
                 <!-- Question form end -->
             </div>
             <!-- main bar end -->

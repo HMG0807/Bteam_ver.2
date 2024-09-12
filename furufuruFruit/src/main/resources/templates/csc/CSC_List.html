@@ -46,7 +46,7 @@
                         <div th:text="${paging.totalElements - (paging.number * paging.size) - loop.index}"></div>
                         <a th:href="@{|/csc/detail/${servicecenterquestion.cquestionId}|}" th:text="${servicecenterquestion.title}"></a> 
                         <div th:text="${#temporals.format(servicecenterquestion.questionDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
-                        <div></div>
+                        <div th:text="${servicecenterquestion.servicecenteranswer==null} ? 'N' : 'Y'"></div>
                     </li>
                 </ul>
                 <!-- wrap content end -->
