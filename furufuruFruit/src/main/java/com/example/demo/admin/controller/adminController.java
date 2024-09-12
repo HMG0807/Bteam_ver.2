@@ -30,11 +30,7 @@ public class adminController {
 		return "admin/admin_main";
 	}
 	
-//	@GetMapping("/admin/sub_user")
-//	public String startSub() {
-//		
-//		return "admin/admin_sub_user";
-//	}
+
 	
 	@GetMapping("/admin/sub_center")
 	public String startSubCenter(Model model, @RequestParam(value="page", defaultValue="0") int page,
