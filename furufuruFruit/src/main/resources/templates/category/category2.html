@@ -44,6 +44,12 @@
 	
 		 }
 		 
+      .card > img{
+          width: 220px;
+          height: 163.5px;
+    }
+
+
         .card-text{
 		  color:red;
 		  font-weight: bolder;
@@ -62,7 +68,7 @@
 
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                   
-                <div class="col" th:each="product : ${productList}">
+                <div class="col" th:each="product : ${category}">
                     <div class="card" style="cursor: pointer;" onclick="location.href='#';">
                       <img th:src="${product.path}" class="card-img-top" alt="...">
                       <div class="card-body">

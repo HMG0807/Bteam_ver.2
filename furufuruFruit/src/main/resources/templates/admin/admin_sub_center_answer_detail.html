@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc8b36da76.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px; padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: rgb(255,192,0);
+            height: 50px;
+            padding-top: 10px;
+            padding-left: 10px;
+            color: white;
+        }
+        header > a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        #container{
+            display: flex;
+        }
+
+        /* nav 구역 */
+        nav{
+            background-color: rgb(140, 163, 177);
+            display: inline-block;
+            width: 200px;
+            height: 1600px;
+        }
+        nav > div {
+            color: white;
+            border-bottom: 1px solid #666;
+            width: 200px;
+            font-size: 1rem;
+            text-align: left;
+            padding: 18px 0px 18px 15px;
+        }
+        nav > div:hover {
+            background-color: rgb(56, 56, 56);
+            cursor: pointer;
+        }
+        nav > div:nth-child(2){
+            border-right: 7px solid rgb(56, 56, 56);
+        }
+        nav i {
+            margin-right: 5px;
+        }
+
+        /* section 구역 */
+        section{
+            display: inline-block;
+            padding: 20px 0px 0px 50px;
+        }
+        section > h1{
+            font-size: 30px;
+        }
+
+        /* section 구역 > 글 내용 구역 */
+        section > #content-box {
+            /* outline: 1px solid red; */
+        }
+        td {
+            border: 1px solid #ccc;
+        }
+        section table { /* table */
+            border: 1px solid #ccc;
+            border-top: 2px solid black;
+            border-collapse: collapse;
+            width: 800px;
+            height: 600px;
+            margin-top: 20px;
+        }
+        section table .writing-title { /* 글 제목 <tr> */
+            height: 70px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: rgb(237, 242, 245);
+        }
+        section table .writing-title > td {
+            padding-left: 10px;
+        }
+        section table .writing-id-date {
+            height: 50px;
+        }
+        section table .writing-td-title{ /* ID, 등록날짜, 내용 컬럼 */
+            width: 120px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: bold;
+            background-color: rgb(237, 242, 245);
+        }
+        section table .writing-id-date > .writing-td-content{ /* ID, 등록날짜 값 */
+            width: 240px;
+        }
+        section table .writing-td-content{ /* ID, 등록날짜, 내용 값 */
+            padding-left: 15px;
+            font-size: 16px;
+        }
+        section table .writing-td-content-pre{ /* 내용 값 */
+            height: 440px;
+            width: 640px;
+            font-size: 16px;
+            white-space: pre-wrap; /* 줄바꿈 설정 */
+            line-height: 22px;
+        }
+
+        /* 버튼 스타일 */
+        .btn-style {
+            margin-top: 20px;
+            background-color: rgb(13, 110, 253);
+            font-size: 17px;
+            width: 90px;
+            height: 40px;
+            border: 0px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 답변 등록 */
+        #answer-table .writing-td-content{ /* 답변 등록의 제목, 내용 값 */
+            width: 640px;
+        }
+        #answer-table #writing-td-text {
+            border-width: 0px;
+            width: 630px;
+            height: 30px;
+            outline: none; /* 포커스 상태일때 두께 생기는거 없애기 */
+            font-size: 17px;
+        }
+        #answer-table #writing-td-textarea {
+            border-width: 0px;
+            width: 640px;
+            height: 500px;
+            outline: none; /* 포커스 상태일때 두께 생기는거 없애기 */
+            font-size: 17px;
+            resize: none;
+            line-height: 22px;
+        }
+
+        /* 답변 저장, 초기화 버튼 */
+        #btn-box {
+            margin: 0px auto;
+            width: 250px;
+        }
+        #btn-box > button:nth-child(2) {
+            margin-left: 20px;
+        }
+        
+        /* 추가 사항 */
+        hr {
+            margin-top: 50px;
+            border-width: 1px 0px 0px 0px;
+        }
+        #answerH1 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a th:href="@{/master}">푸릇 푸릇 푸르츠</a>
+    </header>
+    <div id="container">
+        <nav>
+            <div class="navBtn"><i class="fa-solid fa-address-book fa-1x"></i>사용자 관리</div>
+            <div class="navBtn"><i class="fa-solid fa-square-pen fa-1x"></i>고객센터 관리</div>
+        </nav>
+        <section>
+            <h1>고객센터 관리 > 상세 페이지</h1>
+            <div id="content-box">
+                <table>
+                    <tr class="writing-title">
+                        <td th:text="${scQuestion.title}" colspan="4"></td>
+                    </tr>
+                    <tr class="writing-id-date">
+                        <td class="writing-td-title">ID</td>
+                        <td th:text="${scQuestion.buyuser.id}" class="writing-td-content"></td>
+                        <td class="writing-td-title">등록날짜</td>
+                        <td th:text="${#temporals.format(scQuestion.questionDate, 'yyyy-MM-dd HH:mm:ss')}" class="writing-td-content"></td>
+                    </tr>
+                    <tr class="writing-content">
+                        <td class="writing-td-title">내용</td>
+                        <td class="writing-td-content" colspan="3">
+                            <pre th:text="${scQuestion.contents}" class="writing-td-content-pre"></pre>
+                        </td>
+                    </tr>
+                </table>
+
+                <hr>
+                <h1 id="answerH1">관리자 답변 글</h1>
+
+                <form id="answerForm">
+                    <table id="answer-table">
+                        <tr class="writing-id-date">
+                            <td class="writing-td-title">제목</td>
+                            <td class="writing-td-content">
+                                <input type="text" th:value="${scQuestion.servicecenteranswer.title}" name="title" id="writing-td-text" spellcheck="false" readonly>
+                            </td>
+                        </tr>
+                        <tr class="writing-content">
+                            <td class="writing-td-title">내용</td>
+                            <td class="writing-td-content">
+                                <textarea th:text="${scQuestion.servicecenteranswer.contents}" name="content" id="writing-td-textarea" spellcheck="false" readonly></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div id="btn-box">
+                    <button id="updateBtn" class="btn-style">수정</button>
+                    <button id="updateReBtn" class="btn-style" th:attr="data-id=${scQuestion.servicecenteranswer.canswerId}">수정 등록</button>
+                    <button id="deleteBtn" class="btn-style" th:attr="data-id=${scQuestion.servicecenteranswer.canswerId}">답변 삭제</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        const navBtns = document.querySelectorAll(".navBtn");
+        const updateBtn = document.querySelector("#updateBtn");
+        const updateReBtn = document.querySelector("#updateReBtn"); /* 수정 등록 */
+        const deleteBtn = document.querySelector("#deleteBtn");
+        
+        const title = document.querySelector("#writing-td-text");
+        const content = document.querySelector("#writing-td-textarea");
+        
+        const form = document.querySelector("#answerForm");
+
+        updateReBtn.style.display = "none";
+
+        navBtns[0].addEventListener('click', function(){
+            location.href = "/admin/sub_user";
+        });
+        navBtns[1].addEventListener('click', function(){
+            location.href = "/admin/sub_center";
+        });
+        
+        /* 수정 버튼 클릭시 */
+        updateBtn.addEventListener('click', function(){
+            updateBtn.style.display = "none";
+            updateReBtn.style.display = "inline-block";
+            title.readOnly = false;
+            content.readOnly = false;
+            title.select();
+        });
+        
+        /* 수정 등록 버튼 클릭시 */
+        updateReBtn.addEventListener('click', function(){
+            form.action = "/admin/sub_center_answer/update/" + updateReBtn.getAttribute("data-id");
+            form.method = "get";
+            form.submit();
+        });
+
+        /* 답변 삭제 버튼 클릭시 */
+        deleteBtn.addEventListener('click', function(){
+            if(confirm("정말로 삭제하시겠습니까?")){
+                location.href = "/admin/sub_center_answer/delete/" + deleteBtn.getAttribute("data-id");
+            }
+        });
+    </script>
+</body>
+</html>

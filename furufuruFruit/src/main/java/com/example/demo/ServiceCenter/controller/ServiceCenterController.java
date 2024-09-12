@@ -18,6 +18,8 @@ import com.example.demo.Entity.servicecenterquestion;
 import com.example.demo.ServiceCenter.QuestionForm;
 import com.example.demo.ServiceCenter.Exception.UserException;
 import com.example.demo.ServiceCenter.Service.QuestionService;
+import com.example.demo.admin.service.adminService;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -26,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class ServiceCenterController {
 	
 	private final QuestionService qr;
+	private final adminService ar;
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc")
@@ -101,6 +104,15 @@ public class ServiceCenterController {
 		this.qr.delete(q);
 		
 		return "redirect:/csc";
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/csc/answer/{id}")
+	public String answerDetail(Model model, @PathVariable("id") Integer id) {
+		
+		model.addAttribute("answer", this.ar.getAnswer(id));
+		
+		return "csc/CSC_Answer_Detail";
 	}
 	
 }
