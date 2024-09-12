@@ -8,139 +8,7 @@ body, html {
     background-color: #f2f2f2; /* 전체 배경색 */
 }
 
-/* 헤더 스타일 */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgb(255,192,0);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* 헤더 하단 여백 추가 */
-.header + .container {
-    margin-top: 200px; /* 헤더 높이 + 여백 */
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 10px;
-}
-
-.user-info {
-    font-size: 14px;
-}
-
-.user-info span {
-    margin-right: 20px;
-}
-
-.header-actions a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-}
-
-.header-actions a:hover {
-    text-decoration: underline;
-}
-
-.header-middle {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 10px;
-}
-
-.logo {
-    flex: 1;
-}
-
-.logo a {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.search-bar {
-    flex: 2;
-    display: flex;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-}
-
-.search-bar button {
-    padding: 5px 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-left: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
-}
-
-.header-actions {
-    flex: 2;
-    display: flex;
-    justify-content: space-around;
-}
-
-.header-actions a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* 네비게이션 */
-.header-nav {
-    width: 100%;
-    background-color: rgb(255,192,0);
-}
-
-.header-nav ul {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    margin: 0;
-    list-style: none;
-}
-
-.header-nav li {
-    margin: 0 15px;
-}
-
-.header-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-.header-nav a:hover {
-    text-decoration: underline;
-}
-
-.container{
+.cContainer{
     display : flex; 
     height: calc(100vh - 140px); 
     padding : 20px;
@@ -157,7 +25,6 @@ body, html {
     padding : 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     overflow : auto;
-    max-height : 500px;
  
 }
 /*사이드바 제목*/
