@@ -20,20 +20,21 @@ public class UserController {
 
 	private final UserService userService;
 	
+	//	로그인 페이지 연결
 	@GetMapping("/login")
 	public String login() {
 		return "login/login_form";
 	}
 	
+	//	회원가입 페이지 연결
 	@GetMapping("/signup")
 	public String signup(UserCreateForm userCreateForm) {
 		return "signup/signup_form";
 	}
 	
+	//  회원가입 정보가 처리되는 곳
 	@PostMapping("/signup")
 	public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
-		System.out.println(userCreateForm.getEmail1());
-		System.out.println(userCreateForm.getEmail2());
 		if(bindingResult.hasErrors()) {
 			return "signup/signup_form";
 		}
