@@ -29,9 +29,7 @@
                 </div>
                 <!-- title end -->
 
-                <!-- Question form -->
-
-                    <!-- subject -->
+                <!-- subject -->
                 <div class="qs-info-subject" style="margin-top: 50px;">
                     <h3>제목</h1>
                     <input type="text" th:value="${answer.title}" readonly>
@@ -44,10 +42,12 @@
                     <textarea th:text="${answer.contents}" readonly></textarea>
                 </div>
                 <!-- content end -->
+                
+                <!-- 이전버튼 -->
                 <div id="answerBtnBox">
 	                <a id="returnBtn" href="javascript:void(0)">이전으로 가기</a>
 	            </div>
-                <!-- Question form end -->
+	            <!-- 이전버튼 end -->
             </div>
             <!-- main bar end -->
             

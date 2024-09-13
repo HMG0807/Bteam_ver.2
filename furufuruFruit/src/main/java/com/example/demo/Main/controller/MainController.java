@@ -24,6 +24,7 @@ public class MainController {
 	private final MainRepository mr;
 	private final detailpageservice dpR;
 	
+	/* 페이징 처리 후, 상품 진열 */	
 	@GetMapping("/main")
 	public String main(Model model,@RequestParam(value="page", defaultValue="0") int page) {
 
@@ -36,7 +37,7 @@ public class MainController {
 	}
 	
 		
-
+	/* 기본화면으로 바로 가게 해주는 메서드 */
 	@GetMapping("/")
 	public String back() {
 		

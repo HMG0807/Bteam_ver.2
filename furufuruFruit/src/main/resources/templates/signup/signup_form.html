@@ -86,6 +86,7 @@
                   <br>
                   <input th:field="*{address3}" id="member_addr_in" type="text" placeholder="상세주소를 입력하세요"  >
                 </div>
+				<!-- adress end -->
 
               </div>
               <!-- user info end -->
@@ -99,14 +100,14 @@
               </div>
               <!-- gender end -->
 
-              <!-- userinfo -->
+              <!-- buy or sale -->
               <div class="userinfo">
                 <input th:field="*{role}" type="radio" name="role" value="buyuser" />
                 <label for="buyuser">구매자</label>
                 <input th:field="*{role}" type="radio" name="role" value="saleuser"/>
                 <label for="saleuser">판매자</label>
               </div>
-              <!-- userinfo end -->
+              <!-- buy or sale end -->
 
               <!-- agree -->
               <div class="agree-check">

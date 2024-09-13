@@ -30,6 +30,7 @@ public class ServiceCenterController {
 	private final QuestionService qr;
 	private final adminService ar;
 	
+	//  서비스센터 페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc")
 	public String SCenter(Model model, @RequestParam(value="page", defaultValue="0") int page, Principal principal) throws UserException {
@@ -39,6 +40,7 @@ public class ServiceCenterController {
 		return "csc/CSC_List";
 	}
 	
+	//  서비스센터 문의 상세페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "/csc/detail/{id}")
 	public String detail(Model model, @PathVariable("id") Integer id, QuestionForm questionForm) throws UserException {
@@ -48,6 +50,7 @@ public class ServiceCenterController {
 		return "csc/CSC_Detail";
 	}
 	
+	//  서비스센터 문의 페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc/form")
 	public String questionForm(QuestionForm questionForm) {
@@ -55,6 +58,7 @@ public class ServiceCenterController {
 		return "csc/CSC_Form";
 	}
 	
+	// 서비스센터 문의한 내용을 받아와 처리하는 곳
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/csc/form")
 	public String questionCreate(@Valid QuestionForm questionForm, 
@@ -69,6 +73,7 @@ public class ServiceCenterController {
 		return "redirect:/csc";
 	}
 	
+	//  서비스센터 문의 수정페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc/modify/{id}")
 	public String questionModify(QuestionForm questionForm, @PathVariable("id") Integer id) throws UserException {
@@ -81,6 +86,8 @@ public class ServiceCenterController {
 		
 	}
 	
+	
+	//  서비스센터 문의 수정이 처리되는 곳
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/csc/modify/{id}")
 	public String questionModify(@Valid QuestionForm questionForm, 
@@ -96,6 +103,7 @@ public class ServiceCenterController {
 		return "redirect:/csc/detail/{id}";
 	}
 	
+	//  서비스센터 문의 삭제페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc/delete/{id}")
 	public String questionDelete(QuestionForm questionForm, @PathVariable("id") Integer id) throws UserException {
@@ -106,6 +114,8 @@ public class ServiceCenterController {
 		return "redirect:/csc";
 	}
 	
+	
+	// 서비스센터 문의 답변페이지 연결
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/csc/answer/{id}")
 	public String answerDetail(Model model, @PathVariable("id") Integer id) {

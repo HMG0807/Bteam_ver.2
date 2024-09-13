@@ -22,7 +22,7 @@ public class UserService {
 	private final UserRepository userRepository;
 	private final PasswordEncoder passwordEncoder;
 	
-	
+	//  사용자로부터 입력받은 값을 DB에 저장될 수 있게하는 메서드
 	public buyuser create(String id,String pw,String email1,String email2, String name, String tell, String address1,String address2,String address3,String gender, String role) {
 		
 		buyuser user = new buyuser();
@@ -41,7 +41,7 @@ public class UserService {
 		return user;
 		
 	}
-	
+	//  ID값으로 해당되는 유저를 찾는 메서드
 	public buyuser getUser(String id) throws UserException {
 		Optional<buyuser> buyuser = this.userRepository.findById(id);
 		if(buyuser.isPresent()) {

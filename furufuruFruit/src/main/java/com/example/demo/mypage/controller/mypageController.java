@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.demo.Entity.buyuser;
 import com.example.demo.ServiceCenter.Exception.UserException;
 import com.example.demo.ServiceCenter.Service.QuestionService;
 
@@ -23,11 +24,14 @@ public class mypageController {
 	@GetMapping("/mypage/order") // 주문 내역 페이지 경로 
 	public String showOrderPage(Model model, Principal principal) throws UserException  {
 		
-		
+		buyuser user = qs.getBuyuser(principal.getName()); // 사용자 정보 가져오기
 		
 		model.addAttribute("user", qs.getBuyuser(principal.getName()));
 		
 		return "mypage/customer"; // 주문 내역 HTML 파일 반환 
+		
+		
+		
 	}
 
 	@PreAuthorize("isAuthenticated()")

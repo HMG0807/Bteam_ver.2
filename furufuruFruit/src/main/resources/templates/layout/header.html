@@ -164,7 +164,8 @@
               <a th:href="@{|/cart/${buyuserId}|}" class="cart">장바구니</a>
                <a href="/csc">고객센터</a>
                <a sec:authorize="isAnonymous()" th:href="@{/mypage/order}" hidden>마이페이지</a>
-               <a sec:authorize="isAuthenticated()" th:href="@{/mypage/order}">마이페이지</a>
+               <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/mypage/order}">마이페이지</a>
+               <a sec:authorize="hasRole('ROLE_SALEUSER')" th:href="@{mypage/Sellmypage/inquiry}">마이페이지</a>
             
               </span>   
           </div>
