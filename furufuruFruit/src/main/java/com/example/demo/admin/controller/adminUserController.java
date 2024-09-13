@@ -25,27 +25,31 @@ public class adminUserController {
 	
 
     // 사용자 관리 화면
-	// 회원가입한 모든 유저들의 리스트들 가져오기 
-    @GetMapping("/admin/sub_user")                                                              // 예시임 
+    // 모든 사용자 목록을 가져와서 페이지와 검색어를 모델에 추가
+	// startsub 메서드에서는 Model 객체를 사용하여 view에 데이터를 전달함.
+	// @RequestParam을 통해 페이지 번호 그리고 검색어를 받아올 수 있음. 
+    @GetMapping("/admin/sub_user")                                                              
     public String startSub(Model model, @RequestParam(value="page", defaultValue="0") int page,
-    		// 예시
+    		
     		  @RequestParam(value = "kw", defaultValue = "") String kw) {
     	
-    	
+    	 // 사용자 목록을 가져오는 메서드 호출 (리스트 형태)
     	List<buyuser> by = this.subuserService.getList();
     	
+    	
+    	 // 페이징기능 및 검색 기능이 포함된 사용자 목록을 가져오는 메서드 호출
     	Page<buyuser> paging = this.subuserService.getbuyuserList(page,kw);
     	
     	
     	
-    	
+    	// Model에 페이징처리된 결과와 검색어를 추가
     	model.addAttribute("paging", paging);
     	
     	
     	model.addAttribute("kw", kw);
     
     	
-        return "admin/admin_sub_user"; // 뷰 이름 반환
+        return "admin/admin_sub_user"; 
         
         
         
