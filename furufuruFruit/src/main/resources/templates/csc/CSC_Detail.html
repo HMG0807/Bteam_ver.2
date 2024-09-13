@@ -30,9 +30,8 @@
                 </div>
                 <!-- title end -->
 
-                <!-- Question form -->
 
-                    <!-- subject -->
+                <!-- subject -->
                 <div class="qs-info-subject" style="margin-top: 50px;">
                     <h3>제목</h1>
                     <input type="text" th:value="${question.title}" readonly>
@@ -45,6 +44,8 @@
                     <textarea th:text="${question.contents}" readonly></textarea>
                 </div>
                 <!-- content end -->
+                
+                <!-- 수정 및 삭제 버튼 / 답변확인 -->
                 <div>
                     <a class="subBtn" th:href="@{|/csc/modify/${question.cquestionId}|}">수정하기</a>
                     <a class="subBtn delete" href="javascript:void(0);"
@@ -55,7 +56,8 @@
 	                    <a id="answerBtn" th:href="@{|/csc/answer/${question.servicecenteranswer.canswerId}|}">답변 보기</a>
 	                </div>
                 </th:block>
-                <!-- Question form end -->
+                <!-- 수정 및 삭제 버튼 / 답변확인 end-->
+                
             </div>
             <!-- main bar end -->
             

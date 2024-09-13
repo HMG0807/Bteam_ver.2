@@ -45,7 +45,6 @@ let price = document.querySelector(".price").innerText;
 
 // 수량 변동
 p_num.value = num;
-console.log(p_num.value);
 // 금액 변동
 totalPrice.innerText = price;
 
@@ -75,24 +74,6 @@ plusbtn.addEventListener('click',function(){
 });
     
 
-
-
-
-
-
-
- 
- 
- 
-
-//  // 숫자 3자리 콤마찍기
-// Number.prototype.formatNumber = function(){
-//     if(this==0) return 0;
-//     let regex = /(^[+-]?\d+)(\d)/;
-//     let nstr = (this + '');
-//     while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
-//     return nstr;
-// };
       
 let addCart = document.querySelector("#addcart");
 
